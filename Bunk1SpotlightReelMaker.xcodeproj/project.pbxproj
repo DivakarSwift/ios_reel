@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		88BA2F201D89F74B006C9C5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F1F1D89F74B006C9C5D /* main.m */; };
+		88BA2F231D89F74B006C9C5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F221D89F74B006C9C5D /* AppDelegate.m */; };
+		88BA2F261D89F74B006C9C5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F251D89F74B006C9C5D /* ViewController.m */; };
+		88BA2F291D89F74B006C9C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BA2F271D89F74B006C9C5D /* Main.storyboard */; };
+		88BA2F2B1D89F74B006C9C5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88BA2F2A1D89F74B006C9C5D /* Assets.xcassets */; };
+		88BA2F2E1D89F74B006C9C5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BA2F2C1D89F74B006C9C5D /* LaunchScreen.storyboard */; };
+		88BA2F391D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F381D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests.m */; };
+		88BA2F441D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F431D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		88BA2F351D89F74B006C9C5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88BA2F131D89F74B006C9C5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88BA2F1A1D89F74B006C9C5D;
+			remoteInfo = Bunk1SpotlightReelMaker;
+		};
+		88BA2F401D89F74B006C9C5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88BA2F131D89F74B006C9C5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88BA2F1A1D89F74B006C9C5D;
+			remoteInfo = Bunk1SpotlightReelMaker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		88BA2F1B1D89F74B006C9C5D /* Bunk1SpotlightReelMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bunk1SpotlightReelMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88BA2F1F1D89F74B006C9C5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		88BA2F211D89F74B006C9C5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		88BA2F221D89F74B006C9C5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		88BA2F241D89F74B006C9C5D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		88BA2F251D89F74B006C9C5D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		88BA2F281D89F74B006C9C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88BA2F2A1D89F74B006C9C5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88BA2F2D1D89F74B006C9C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88BA2F2F1D89F74B006C9C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88BA2F341D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bunk1SpotlightReelMakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88BA2F381D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bunk1SpotlightReelMakerTests.m; sourceTree = "<group>"; };
+		88BA2F3A1D89F74B006C9C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88BA2F3F1D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bunk1SpotlightReelMakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88BA2F431D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bunk1SpotlightReelMakerUITests.m; sourceTree = "<group>"; };
+		88BA2F451D89F74B006C9C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88BA2F181D89F74B006C9C5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88BA2F311D89F74B006C9C5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88BA2F3C1D89F74B006C9C5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88BA2F121D89F74B006C9C5D = {
+			isa = PBXGroup;
+			children = (
+				88BA2F1D1D89F74B006C9C5D /* Bunk1SpotlightReelMaker */,
+				88BA2F371D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests */,
+				88BA2F421D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests */,
+				88BA2F1C1D89F74B006C9C5D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88BA2F1C1D89F74B006C9C5D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88BA2F1B1D89F74B006C9C5D /* Bunk1SpotlightReelMaker.app */,
+				88BA2F341D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests.xctest */,
+				88BA2F3F1D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88BA2F1D1D89F74B006C9C5D /* Bunk1SpotlightReelMaker */ = {
+			isa = PBXGroup;
+			children = (
+				88BA2F211D89F74B006C9C5D /* AppDelegate.h */,
+				88BA2F221D89F74B006C9C5D /* AppDelegate.m */,
+				88BA2F241D89F74B006C9C5D /* ViewController.h */,
+				88BA2F251D89F74B006C9C5D /* ViewController.m */,
+				88BA2F271D89F74B006C9C5D /* Main.storyboard */,
+				88BA2F2A1D89F74B006C9C5D /* Assets.xcassets */,
+				88BA2F2C1D89F74B006C9C5D /* LaunchScreen.storyboard */,
+				88BA2F2F1D89F74B006C9C5D /* Info.plist */,
+				88BA2F1E1D89F74B006C9C5D /* Supporting Files */,
+			);
+			path = Bunk1SpotlightReelMaker;
+			sourceTree = "<group>";
+		};
+		88BA2F1E1D89F74B006C9C5D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88BA2F1F1D89F74B006C9C5D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88BA2F371D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests */ = {
+			isa = PBXGroup;
+			children = (
+				88BA2F381D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests.m */,
+				88BA2F3A1D89F74B006C9C5D /* Info.plist */,
+			);
+			path = Bunk1SpotlightReelMakerTests;
+			sourceTree = "<group>";
+		};
+		88BA2F421D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				88BA2F431D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.m */,
+				88BA2F451D89F74B006C9C5D /* Info.plist */,
+			);
+			path = Bunk1SpotlightReelMakerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88BA2F1A1D89F74B006C9C5D /* Bunk1SpotlightReelMaker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88BA2F481D89F74B006C9C5D /* Build configuration list for PBXNativeTarget "Bunk1SpotlightReelMaker" */;
+			buildPhases = (
+				88BA2F171D89F74B006C9C5D /* Sources */,
+				88BA2F181D89F74B006C9C5D /* Frameworks */,
+				88BA2F191D89F74B006C9C5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bunk1SpotlightReelMaker;
+			productName = Bunk1SpotlightReelMaker;
+			productReference = 88BA2F1B1D89F74B006C9C5D /* Bunk1SpotlightReelMaker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		88BA2F331D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88BA2F4B1D89F74B006C9C5D /* Build configuration list for PBXNativeTarget "Bunk1SpotlightReelMakerTests" */;
+			buildPhases = (
+				88BA2F301D89F74B006C9C5D /* Sources */,
+				88BA2F311D89F74B006C9C5D /* Frameworks */,
+				88BA2F321D89F74B006C9C5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88BA2F361D89F74B006C9C5D /* PBXTargetDependency */,
+			);
+			name = Bunk1SpotlightReelMakerTests;
+			productName = Bunk1SpotlightReelMakerTests;
+			productReference = 88BA2F341D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		88BA2F3E1D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88BA2F4E1D89F74B006C9C5D /* Build configuration list for PBXNativeTarget "Bunk1SpotlightReelMakerUITests" */;
+			buildPhases = (
+				88BA2F3B1D89F74B006C9C5D /* Sources */,
+				88BA2F3C1D89F74B006C9C5D /* Frameworks */,
+				88BA2F3D1D89F74B006C9C5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88BA2F411D89F74B006C9C5D /* PBXTargetDependency */,
+			);
+			name = Bunk1SpotlightReelMakerUITests;
+			productName = Bunk1SpotlightReelMakerUITests;
+			productReference = 88BA2F3F1D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88BA2F131D89F74B006C9C5D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Spotlight;
+				TargetAttributes = {
+					88BA2F1A1D89F74B006C9C5D = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					88BA2F331D89F74B006C9C5D = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 88BA2F1A1D89F74B006C9C5D;
+					};
+					88BA2F3E1D89F74B006C9C5D = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 88BA2F1A1D89F74B006C9C5D;
+					};
+				};
+			};
+			buildConfigurationList = 88BA2F161D89F74B006C9C5D /* Build configuration list for PBXProject "Bunk1SpotlightReelMaker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 88BA2F121D89F74B006C9C5D;
+			productRefGroup = 88BA2F1C1D89F74B006C9C5D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88BA2F1A1D89F74B006C9C5D /* Bunk1SpotlightReelMaker */,
+				88BA2F331D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests */,
+				88BA2F3E1D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88BA2F191D89F74B006C9C5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88BA2F2E1D89F74B006C9C5D /* LaunchScreen.storyboard in Resources */,
+				88BA2F2B1D89F74B006C9C5D /* Assets.xcassets in Resources */,
+				88BA2F291D89F74B006C9C5D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88BA2F321D89F74B006C9C5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88BA2F3D1D89F74B006C9C5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88BA2F171D89F74B006C9C5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88BA2F261D89F74B006C9C5D /* ViewController.m in Sources */,
+				88BA2F231D89F74B006C9C5D /* AppDelegate.m in Sources */,
+				88BA2F201D89F74B006C9C5D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88BA2F301D89F74B006C9C5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88BA2F391D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88BA2F3B1D89F74B006C9C5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88BA2F441D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88BA2F361D89F74B006C9C5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88BA2F1A1D89F74B006C9C5D /* Bunk1SpotlightReelMaker */;
+			targetProxy = 88BA2F351D89F74B006C9C5D /* PBXContainerItemProxy */;
+		};
+		88BA2F411D89F74B006C9C5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88BA2F1A1D89F74B006C9C5D /* Bunk1SpotlightReelMaker */;
+			targetProxy = 88BA2F401D89F74B006C9C5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		88BA2F271D89F74B006C9C5D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88BA2F281D89F74B006C9C5D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		88BA2F2C1D89F74B006C9C5D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88BA2F2D1D89F74B006C9C5D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		88BA2F461D89F74B006C9C5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		88BA2F471D89F74B006C9C5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88BA2F491D89F74B006C9C5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Bunk1SpotlightReelMaker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myspotlight.Bunk1SpotlightReelMaker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		88BA2F4A1D89F74B006C9C5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Bunk1SpotlightReelMaker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myspotlight.Bunk1SpotlightReelMaker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		88BA2F4C1D89F74B006C9C5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Bunk1SpotlightReelMakerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myspotlight.Bunk1SpotlightReelMakerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bunk1SpotlightReelMaker.app/Bunk1SpotlightReelMaker";
+			};
+			name = Debug;
+		};
+		88BA2F4D1D89F74B006C9C5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Bunk1SpotlightReelMakerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myspotlight.Bunk1SpotlightReelMakerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bunk1SpotlightReelMaker.app/Bunk1SpotlightReelMaker";
+			};
+			name = Release;
+		};
+		88BA2F4F1D89F74B006C9C5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Bunk1SpotlightReelMakerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myspotlight.Bunk1SpotlightReelMakerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Bunk1SpotlightReelMaker;
+			};
+			name = Debug;
+		};
+		88BA2F501D89F74B006C9C5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Bunk1SpotlightReelMakerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myspotlight.Bunk1SpotlightReelMakerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Bunk1SpotlightReelMaker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88BA2F161D89F74B006C9C5D /* Build configuration list for PBXProject "Bunk1SpotlightReelMaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88BA2F461D89F74B006C9C5D /* Debug */,
+				88BA2F471D89F74B006C9C5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88BA2F481D89F74B006C9C5D /* Build configuration list for PBXNativeTarget "Bunk1SpotlightReelMaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88BA2F491D89F74B006C9C5D /* Debug */,
+				88BA2F4A1D89F74B006C9C5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		88BA2F4B1D89F74B006C9C5D /* Build configuration list for PBXNativeTarget "Bunk1SpotlightReelMakerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88BA2F4C1D89F74B006C9C5D /* Debug */,
+				88BA2F4D1D89F74B006C9C5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		88BA2F4E1D89F74B006C9C5D /* Build configuration list for PBXNativeTarget "Bunk1SpotlightReelMakerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88BA2F4F1D89F74B006C9C5D /* Debug */,
+				88BA2F501D89F74B006C9C5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88BA2F131D89F74B006C9C5D /* Project object */;
+}
