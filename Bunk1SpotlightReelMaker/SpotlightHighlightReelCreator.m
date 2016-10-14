@@ -35,48 +35,263 @@
     dispatch_once(&pred,^{
         sharedCreator = [[SpotlightHighlightReelCreator alloc] init];
         sharedCreator.isWritingPhotoVideo = NO;
+        sharedCreator.videoSettings = [sharedCreator videoSettingsWithCodec:AVVideoCodecH264
+                                                withWidth:960
+                                                andHeight:540];
     });
     return sharedCreator;
 }
 
 - (void)createMontageWithMedia:(NSArray*)mediaArray shouldSave:(BOOL)shouldSave{
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Select your background music"
-                                                                   message:@""
-                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+//    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Select your background music"
+//                                                                   message:@""
+//                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+//    
+//    [alert addAction:[UIAlertAction actionWithTitle:@"Cool Kids"
+//                                              style:UIAlertActionStyleDefault
+//                                            handler:^(UIAlertAction * _Nonnull action) {
+//                                                [self createMontageWithMedia:mediaArray songTitle:@"DT_TheDuff_CoolKids_INST130" shouldSave:shouldSave];
+//                                            }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"Disney Funk"
+//                                              style:UIAlertActionStyleDefault
+//                                            handler:^(UIAlertAction * _Nonnull action) {
+//                                                [self createMontageWithMedia:mediaArray songTitle:@"TB - Disney Funk 124bpm" shouldSave:shouldSave];
+//                                            }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"Every Single Night"
+//                                              style:UIAlertActionStyleDefault
+//                                            handler:^(UIAlertAction * _Nonnull action) {
+//                                                [self createMontageWithMedia:mediaArray songTitle:@"DT_TheDUFF_EverySingleNight_INST_125" shouldSave:shouldSave];
+//                                            }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"Ready 2 Go"
+//                                              style:UIAlertActionStyleDefault
+//                                            handler:^(UIAlertAction * _Nonnull action) {
+//                                                [self createMontageWithMedia:mediaArray songTitle:@"DT_TheDuff_Ready2Go_128_INST" shouldSave:shouldSave];
+//                                            }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
+//                                              style:UIAlertActionStyleCancel
+//                                            handler:nil]];
+//    [self.spotlightReelCreatorDelegate presentViewController:alert animated:YES completion:nil];
+}
+
+//- (void)createMontageWithMedia:(NSArray*)mediaArray {
+////    self.videoSettings = [self videoSettingsWithCodec:AVVideoCodecH264
+////                                            withWidth:1280
+////                                            andHeight:720];
+//    NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"image.mov"];
+//    NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+//    [self initWritersWithUrlPath:fileURL];
+//    self.isWritingPhotoVideo = YES;
+//    
+//    [self createVideo:mediaArray[0] duration:mediaArray.count*3 completion:^() {
+//        AVURLAsset* asset = [AVURLAsset URLAssetWithURL:fileURL
+//                                    options:nil];
+//        
+//        AVMutableComposition *mixComposition = [[AVMutableComposition alloc] init];
+//        
+//        // 3 - Video track
+//        AVMutableCompositionTrack *videoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo
+//                                                                            preferredTrackID:kCMPersistentTrackID_Invalid];
+//        [videoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, asset.duration)
+//                            ofTrack:[[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0]
+//                             atTime:kCMTimeZero error:nil];
+//        
+//        // 3.1 - Create AVMutableVideoCompositionInstruction
+//        AVMutableVideoCompositionInstruction *mainInstruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
+//        mainInstruction.timeRange = CMTimeRangeMake(kCMTimeZero, asset.duration);
+//        
+//        // 3.2 - Create an AVMutableVideoCompositionLayerInstruction for the video track and fix the orientation.
+//        AVMutableVideoCompositionLayerInstruction *videolayerInstruction = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
+//        AVAssetTrack *videoAssetTrack = [[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+////        NSMutableArray* instructions = [NSMutableArray array];
+////        
+////        AVMutableVideoCompositionInstruction *videoCompositionInstruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
+////        videoCompositionInstruction.timeRange = CMTimeRangeMake(kCMTimeZero, asset.duration);
+////        videoCompositionInstruction.layerInstructions = @[[AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack]];
+////        [instructions addObject:videoCompositionInstruction];
+//
+////        AVMutableVideoComposition *mutableVideoComposition = [AVMutableVideoComposition videoComposition];
+////        mutableVideoComposition.instructions = instructions;
+////        mutableVideoComposition.frameDuration = CMTimeMake(1, 30);
+////        mutableVideoComposition.renderSize = CGSizeMake(1280, 720);
+//        
+//        
+//        [videolayerInstruction setTransform:videoAssetTrack.preferredTransform atTime:kCMTimeZero];
+//        [videolayerInstruction setOpacity:0.0 atTime:asset.duration];
+//        
+//        // 3.3 - Add instructions
+//        mainInstruction.layerInstructions = [NSArray arrayWithObjects:videolayerInstruction,nil];
+//        
+//        AVMutableVideoComposition *mainCompositionInst = [AVMutableVideoComposition videoComposition];
+//
+//        mainCompositionInst.renderSize = CGSizeMake(1280, 720);
+//        mainCompositionInst.instructions = [NSArray arrayWithObject:mainInstruction];
+//        mainCompositionInst.frameDuration = CMTimeMake(1, 30);
+//
+//        
+//        [self addImage:mediaArray[1] toComposition:mainCompositionInst size:CGSizeMake(1280, 720)];
+//
+//            AVAssetExportSession *session = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetHighestQuality];
+//            NSString *fileName2 = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"spotlight.mov"];
+//            NSURL *fileURL2 = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName2]];
+//            session.outputURL = fileURL2;
+//            session.outputFileType = AVFileTypeQuickTimeMovie;
+//            [session exportAsynchronouslyWithCompletionHandler:^(void ){
+//                NSLog(@"TADA!");
+//
+//            }];
+//
+//    }];
+//}
+
+
+- (void)addImage:(UIImage*)image toComposition:(AVMutableVideoComposition *)composition size:(CGSize)size
+{
+    CALayer *overlayLayer2 = [CALayer layer];
+    [overlayLayer2 setContents:(id)[image CGImage]];
+    overlayLayer2.frame = CGRectMake(0, 0, size.width, size.height);
+    [overlayLayer2 setMasksToBounds:YES];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cool Kids"
-                                              style:UIAlertActionStyleDefault
-                                            handler:^(UIAlertAction * _Nonnull action) {
-                                                [self createMontageWithMedia:mediaArray songTitle:@"DT_TheDuff_CoolKids_INST130" shouldSave:shouldSave];
-                                            }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Disney Funk"
-                                              style:UIAlertActionStyleDefault
-                                            handler:^(UIAlertAction * _Nonnull action) {
-                                                [self createMontageWithMedia:mediaArray songTitle:@"TB - Disney Funk 124bpm" shouldSave:shouldSave];
-                                            }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Every Single Night"
-                                              style:UIAlertActionStyleDefault
-                                            handler:^(UIAlertAction * _Nonnull action) {
-                                                [self createMontageWithMedia:mediaArray songTitle:@"DT_TheDUFF_EverySingleNight_INST_125" shouldSave:shouldSave];
-                                            }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Ready 2 Go"
-                                              style:UIAlertActionStyleDefault
-                                            handler:^(UIAlertAction * _Nonnull action) {
-                                                [self createMontageWithMedia:mediaArray songTitle:@"DT_TheDuff_Ready2Go_128_INST" shouldSave:shouldSave];
-                                            }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
-                                              style:UIAlertActionStyleCancel
-                                            handler:nil]];
-    [self.spotlightReelCreatorDelegate presentViewController:alert animated:YES completion:nil];
+    CABasicAnimation *animation=[CABasicAnimation animationWithKeyPath:@"opacity"];
+    animation.duration=3.0;
+    animation.repeatCount=5;
+    animation.autoreverses=YES;
+    // animate from invisible to fully visible
+    animation.fromValue=[NSNumber numberWithFloat:0.0];
+    animation.toValue=[NSNumber numberWithFloat:1.0];
+    animation.beginTime = AVCoreAnimationBeginTimeAtZero;
+    [overlayLayer2 addAnimation:animation forKey:@"animateOpacity"];
+    
+    CALayer *parentLayer = [CALayer layer];
+    CALayer *videoLayer = [CALayer layer];
+    parentLayer.frame = CGRectMake(0, 0, size.width, size.height);
+    videoLayer.frame = CGRectMake(0, 0, size.width, size.height);
+    [parentLayer addSublayer:videoLayer];
+    [parentLayer addSublayer:overlayLayer2];
+    
+    composition.animationTool = [AVVideoCompositionCoreAnimationTool
+                                 videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:videoLayer inLayer:parentLayer];
+}
+
+
+
+- (void)createVideo:(UIImage*)image duration:(NSInteger)duration completion:(void (^)(void))completion{
+    
+    [self.assetWriter startWriting];
+    [self.assetWriter startSessionAtSourceTime:kCMTimeZero];
+    
+    dispatch_queue_t mediaInputQueue = dispatch_queue_create("mediaInputQueue", NULL);
+    
+    __block NSInteger i = 0;
+    
+    // This can prob be significantly more efficient
+    [self.writerInput requestMediaDataWhenReadyOnQueue:mediaInputQueue
+                                            usingBlock:^{
+                                                while (YES){
+                                                    if (i >= duration) {
+                                                        break;
+                                                    }
+                                                    if ([self.writerInput isReadyForMoreMediaData]) {
+                                                        
+                                                        CVPixelBufferRef sampleBuffer = [self newPixelBufferFromCGImage:[image CGImage]];
+                                                        
+                                                        if (sampleBuffer) {
+                                                            if (i == 0) {
+                                                                [self.bufferAdapter appendPixelBuffer:sampleBuffer withPresentationTime:kCMTimeZero];
+                                                            }else{
+                                                                CMTime lastTime = CMTimeMake(i-1, self.frameTime.timescale);
+                                                                CMTime presentTime = CMTimeAdd(lastTime, self.frameTime);
+                                                                [self.bufferAdapter appendPixelBuffer:sampleBuffer withPresentationTime:presentTime];
+                                                            }
+                                                            CFRelease(sampleBuffer);
+                                                            i++;
+                                                        }
+                                                    }
+                                                }
+                                                
+                                                [self.writerInput markAsFinished];
+                                                [self.assetWriter finishWritingWithCompletionHandler:^{
+                                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                                        
+                                                        completion();
+                                                    
+                                                    });
+                                                }];
+                                                
+                                                CVPixelBufferPoolRelease(self.bufferAdapter.pixelBufferPool);
+                                            }];
+}
+
+
+
+- (NSURL*)synchronouslyreateVideoFromImage:(UIImage*)image duration:(NSInteger)duration name:(NSString*)name completion:(void (^)(void))completion {
+//    self.videoSettings = [self videoSettingsWithCodec:AVVideoCodecH264
+//                                            withWidth:1280
+//                                            andHeight:720];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"%@_%@", name, @"image.mov"];
+    NSURL *fileURL = [NSURL fileURLWithPath:[documentsDirectory stringByAppendingPathComponent:fileName]];
+
+    NSError *error;
+    
+    BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[fileURL absoluteString] error:&error];
+    if (!success) {
+        NSLog(@"Error removing file at path: %@", error.localizedDescription);
+    }
+    [self initWritersWithUrlPath:fileURL];
+    [self.assetWriter startWriting];
+    [self.assetWriter startSessionAtSourceTime:kCMTimeZero];
+    
+    dispatch_queue_t mediaInputQueue = dispatch_queue_create("mediaInputQueue", NULL);
+    
+    __block NSInteger i = 0;
+    
+    // This can prob be significantly more efficient
+    [self.writerInput requestMediaDataWhenReadyOnQueue:mediaInputQueue
+                                            usingBlock:^{
+                                                while (YES){
+                                                    if (i >= duration) {
+                                                        break;
+                                                    }
+                                                    if ([self.writerInput isReadyForMoreMediaData]) {
+                                                        
+                                                        CVPixelBufferRef sampleBuffer = [self newPixelBufferFromCGImage:[image CGImage]];
+                                                        
+                                                        if (sampleBuffer) {
+                                                            if (i == 0) {
+                                                                [self.bufferAdapter appendPixelBuffer:sampleBuffer withPresentationTime:kCMTimeZero];
+                                                            }else{
+                                                                CMTime lastTime = CMTimeMake(i-1, self.frameTime.timescale);
+                                                                CMTime presentTime = CMTimeAdd(lastTime, self.frameTime);
+                                                                [self.bufferAdapter appendPixelBuffer:sampleBuffer withPresentationTime:presentTime];
+                                                            }
+                                                            CFRelease(sampleBuffer);
+                                                            i++;
+                                                        }
+                                                    }
+                                                }
+                                                
+                                                [self.writerInput markAsFinished];
+                                                [self.assetWriter finishWritingWithCompletionHandler:^{
+                                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                                        
+                                                        completion();
+                                                        
+                                                    });
+                                                }];
+                                                
+                                                CVPixelBufferPoolRelease(self.bufferAdapter.pixelBufferPool);
+                                            }];
+    return fileURL;
 }
 
 
 - (void)createMontageWithMedia:(NSArray*)mediaArray
                      songTitle:(NSString*)songTitle
-                    shouldSave:(BOOL)shouldSave{
+                    shouldSave:(BOOL)shouldSave
+                 savedFileName:(NSString*)savedFileName{
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND,0), ^{
-        
+    
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:
@@ -85,8 +300,8 @@
         NSFileManager *manager = [NSFileManager defaultManager];
         
         self.videoSettings = [self videoSettingsWithCodec:AVVideoCodecH264
-                                                withWidth:1280
-                                                andHeight:720];
+                                                withWidth:960
+                                                andHeight:540];
         
         AVMutableComposition *mixComposition = [[AVMutableComposition alloc] init];
         AVMutableCompositionTrack *track = [mixComposition
@@ -155,17 +370,17 @@
         AVMutableVideoComposition *mutableVideoComposition = [AVMutableVideoComposition videoComposition];
         mutableVideoComposition.instructions = instructions;
         mutableVideoComposition.frameDuration = CMTimeMake(1, 30);
-        mutableVideoComposition.renderSize = CGSizeMake(1280, 720);
+        mutableVideoComposition.renderSize = CGSizeMake(960, 540);
         
         AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:mixComposition];
         playerItem.videoComposition = mutableVideoComposition;
 
         if (shouldSave) {
             AVAssetExportSession *session = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetHighestQuality];
-            NSString *fileName2 = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"spotlight.mov"];
+            NSString *fileName2 = [NSString stringWithFormat:@"%@.mov", savedFileName];
             NSURL *fileURL2 = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName2]];
             session.outputURL = fileURL2;
-            session.outputFileType = AVFileTypeQuickTimeMovie;
+            session.outputFileType = AVFileTypeMPEG4;;
             [session exportAsynchronouslyWithCompletionHandler:^(void ){
                  NSLog(@"TADA!");
                  dispatch_async(dispatch_get_main_queue(), ^{
@@ -177,7 +392,6 @@
                 [self.spotlightReelCreatorDelegate spotlightHighlightReelCreator:self didFinishWithPlayerItem:playerItem savedUrl:nil];
             });
         }
-    });
 }
 
 - (BOOL)isMovie:(NSString*)mediaName {

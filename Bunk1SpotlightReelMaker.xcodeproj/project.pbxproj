@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FDBE10992B7F581D1467C83 /* Pods_Bunk1SpotlightReelMakerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE91570D99A9BBAAF40872E6 /* Pods_Bunk1SpotlightReelMakerTests.framework */; };
+		27014E3A31D425A6FAB8DF62 /* Pods_Bunk1SpotlightReelMakerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF5F42CE7FE156D6782330F /* Pods_Bunk1SpotlightReelMakerUITests.framework */; };
+		8822B4971D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4931D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 */; };
+		8822B4981D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4931D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 */; };
+		8822B4991D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4931D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 */; };
+		8822B49A1D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4941D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 */; };
+		8822B49B1D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4941D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 */; };
+		8822B49C1D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4941D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 */; };
+		8822B49D1D8B3220000427F1 /* TB - Disney Funk 124bpm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4951D8B3220000427F1 /* TB - Disney Funk 124bpm.mp3 */; };
+		8822B49E1D8B3220000427F1 /* TB - Disney Funk 124bpm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4951D8B3220000427F1 /* TB - Disney Funk 124bpm.mp3 */; };
+		8822B49F1D8B3220000427F1 /* TB - Disney Funk 124bpm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4951D8B3220000427F1 /* TB - Disney Funk 124bpm.mp3 */; };
+		8822B4A01D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4961D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 */; };
+		8822B4A11D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4961D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 */; };
+		8822B4A21D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4961D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 */; };
+		8822B4A51D8B343E000427F1 /* begin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4A31D8B343E000427F1 /* begin.png */; };
+		8822B4A61D8B343E000427F1 /* begin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4A31D8B343E000427F1 /* begin.png */; };
+		8822B4A71D8B343E000427F1 /* begin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4A31D8B343E000427F1 /* begin.png */; };
+		8822B4A81D8B343E000427F1 /* end.png in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4A41D8B343E000427F1 /* end.png */; };
+		8822B4A91D8B343E000427F1 /* end.png in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4A41D8B343E000427F1 /* end.png */; };
+		8822B4AA1D8B343E000427F1 /* end.png in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4A41D8B343E000427F1 /* end.png */; };
 		88BA2F201D89F74B006C9C5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F1F1D89F74B006C9C5D /* main.m */; };
 		88BA2F231D89F74B006C9C5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F221D89F74B006C9C5D /* AppDelegate.m */; };
 		88BA2F261D89F74B006C9C5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F251D89F74B006C9C5D /* ViewController.m */; };
@@ -15,6 +35,51 @@
 		88BA2F2E1D89F74B006C9C5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BA2F2C1D89F74B006C9C5D /* LaunchScreen.storyboard */; };
 		88BA2F391D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F381D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests.m */; };
 		88BA2F441D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F431D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.m */; };
+		88BA2F531D89FE60006C9C5D /* SpotlightHighlightReelCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F521D89FE60006C9C5D /* SpotlightHighlightReelCreator.m */; };
+		88BA2F551D8A0B49006C9C5D /* alpaca.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 88BA2F541D8A0B49006C9C5D /* alpaca.jpeg */; };
+		88BA2F571D8A0B4E006C9C5D /* 1552-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88BA2F561D8A0B4E006C9C5D /* 1552-4.jpg */; };
+		88BA2F5D1D8A0B62006C9C5D /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88BA2F5A1D8A0B62006C9C5D /* 1.jpg */; };
+		88BA2F5E1D8A0B62006C9C5D /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88BA2F5B1D8A0B62006C9C5D /* 2.jpg */; };
+		88BA2F621D8A1E11006C9C5D /* movietransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F611D8A1E11006C9C5D /* movietransitions.swift */; };
+		88BA2F651D8A2356006C9C5D /* 1.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 88BA2F631D8A2356006C9C5D /* 1.MOV */; };
+		88BA2F661D8A2356006C9C5D /* 2.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 88BA2F641D8A2356006C9C5D /* 2.MOV */; };
+		88CB17B31D936FAC0056B263 /* 02 Florida - My House.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17B21D936FAC0056B263 /* 02 Florida - My House.mp3 */; };
+		88CB17B61D9370D70056B263 /* LAoutro.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17B41D9370D70056B263 /* LAoutro.PNG */; };
+		88CB17B71D9370D70056B263 /* LAintro.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17B51D9370D70056B263 /* LAintro.PNG */; };
+		88CB17DC1D93711D0056B263 /* IMG_2354.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17B91D93711D0056B263 /* IMG_2354.JPG */; };
+		88CB17DD1D93711D0056B263 /* IMG_2361.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17BA1D93711D0056B263 /* IMG_2361.JPG */; };
+		88CB17DE1D93711D0056B263 /* IMG_2368.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17BB1D93711D0056B263 /* IMG_2368.JPG */; };
+		88CB17DF1D93711D0056B263 /* IMG_2369.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17BC1D93711D0056B263 /* IMG_2369.JPG */; };
+		88CB17E11D93711D0056B263 /* IMG_2380.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17BE1D93711D0056B263 /* IMG_2380.JPG */; };
+		88CB17E21D93711D0056B263 /* IMG_2383.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17BF1D93711D0056B263 /* IMG_2383.JPG */; };
+		88CB17E31D93711D0056B263 /* IMG_2386.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17C01D93711D0056B263 /* IMG_2386.JPG */; };
+		88CB17E41D93711D0056B263 /* IMG_2387.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17C11D93711D0056B263 /* IMG_2387.JPG */; };
+		88CB17E51D93711D0056B263 /* IMG_2400.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17C21D93711D0056B263 /* IMG_2400.JPG */; };
+		88CB17E61D93711D0056B263 /* IMG_2401.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17C31D93711D0056B263 /* IMG_2401.JPG */; };
+		88CB17E71D93711D0056B263 /* IMG_2404.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17C41D93711D0056B263 /* IMG_2404.JPG */; };
+		88CB17E81D93711D0056B263 /* IMG_2405.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17C51D93711D0056B263 /* IMG_2405.JPG */; };
+		88CB17E91D93711D0056B263 /* IMG_2408.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17C61D93711D0056B263 /* IMG_2408.JPG */; };
+		88CB17EA1D93711D0056B263 /* IMG_2409.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17C71D93711D0056B263 /* IMG_2409.JPG */; };
+		88CB17EB1D93711D0056B263 /* IMG_2412.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17C81D93711D0056B263 /* IMG_2412.JPG */; };
+		88CB17EC1D93711D0056B263 /* IMG_2414.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17C91D93711D0056B263 /* IMG_2414.JPG */; };
+		88CB17ED1D93711D0056B263 /* IMG_2425.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17CA1D93711D0056B263 /* IMG_2425.JPG */; };
+		88CB17EE1D93711D0056B263 /* IMG_2431.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17CB1D93711D0056B263 /* IMG_2431.JPG */; };
+		88CB17F11D93711D0056B263 /* IMG_2438.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17CE1D93711D0056B263 /* IMG_2438.JPG */; };
+		88CB17F21D93711D0056B263 /* IMG_2441.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17CF1D93711D0056B263 /* IMG_2441.JPG */; };
+		88CB17F31D93711D0056B263 /* IMG_2442.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17D01D93711D0056B263 /* IMG_2442.JPG */; };
+		88CB17F51D93711D0056B263 /* IMG_2446.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17D21D93711D0056B263 /* IMG_2446.JPG */; };
+		88CB17F61D93711D0056B263 /* IMG_2448.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17D31D93711D0056B263 /* IMG_2448.JPG */; };
+		88CB17F71D93711D0056B263 /* IMG_2450.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17D41D93711D0056B263 /* IMG_2450.JPG */; };
+		88CB17F81D93711D0056B263 /* IMG_2451.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17D51D93711D0056B263 /* IMG_2451.JPG */; };
+		88CB17F91D93711D0056B263 /* IMG_2452.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17D61D93711D0056B263 /* IMG_2452.JPG */; };
+		88CB17FA1D93711D0056B263 /* IMG_2453.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17D71D93711D0056B263 /* IMG_2453.JPG */; };
+		88CB17FB1D93711D0056B263 /* IMG_2456.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17D81D93711D0056B263 /* IMG_2456.JPG */; };
+		88CB17FD1D93711D0056B263 /* IMG_2458.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17DA1D93711D0056B263 /* IMG_2458.JPG */; };
+		88CB17FE1D93711D0056B263 /* IMG_2459.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 88CB17DB1D93711D0056B263 /* IMG_2459.JPG */; };
+		88D784071DAFEB8A002B1859 /* TPWW_InMyShoes_F1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 88D784061DAFEB8A002B1859 /* TPWW_InMyShoes_F1.mp3 */; };
+		88D784081DAFEB8A002B1859 /* TPWW_InMyShoes_F1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 88D784061DAFEB8A002B1859 /* TPWW_InMyShoes_F1.mp3 */; };
+		88D784091DAFEB8A002B1859 /* TPWW_InMyShoes_F1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 88D784061DAFEB8A002B1859 /* TPWW_InMyShoes_F1.mp3 */; };
+		B2F068D00FF51E80E641EAAC /* Pods_Bunk1SpotlightReelMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD224A466541E5C90B6BF12 /* Pods_Bunk1SpotlightReelMaker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +100,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CD224A466541E5C90B6BF12 /* Pods_Bunk1SpotlightReelMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bunk1SpotlightReelMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AF5F42CE7FE156D6782330F /* Pods_Bunk1SpotlightReelMakerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bunk1SpotlightReelMakerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7107C88DEAFA4C1FF55B959A /* Pods-Bunk1SpotlightReelMakerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bunk1SpotlightReelMakerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bunk1SpotlightReelMakerUITests/Pods-Bunk1SpotlightReelMakerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8822B4931D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = DT_TheDuff_Ready2Go_128_INST.mp3; sourceTree = "<group>"; };
+		8822B4941D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = DT_TheDUFF_EverySingleNight_INST_125.mp3; sourceTree = "<group>"; };
+		8822B4951D8B3220000427F1 /* TB - Disney Funk 124bpm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "TB - Disney Funk 124bpm.mp3"; sourceTree = "<group>"; };
+		8822B4961D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = DT_TheDuff_CoolKids_INST130.mp3; sourceTree = "<group>"; };
+		8822B4A31D8B343E000427F1 /* begin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = begin.png; sourceTree = "<group>"; };
+		8822B4A41D8B343E000427F1 /* end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = end.png; sourceTree = "<group>"; };
 		88BA2F1B1D89F74B006C9C5D /* Bunk1SpotlightReelMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bunk1SpotlightReelMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BA2F1F1D89F74B006C9C5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88BA2F211D89F74B006C9C5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +125,56 @@
 		88BA2F3F1D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bunk1SpotlightReelMakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BA2F431D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bunk1SpotlightReelMakerUITests.m; sourceTree = "<group>"; };
 		88BA2F451D89F74B006C9C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88BA2F511D89FE60006C9C5D /* SpotlightHighlightReelCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotlightHighlightReelCreator.h; sourceTree = "<group>"; };
+		88BA2F521D89FE60006C9C5D /* SpotlightHighlightReelCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotlightHighlightReelCreator.m; sourceTree = "<group>"; };
+		88BA2F541D8A0B49006C9C5D /* alpaca.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alpaca.jpeg; sourceTree = "<group>"; };
+		88BA2F561D8A0B4E006C9C5D /* 1552-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1552-4.jpg"; sourceTree = "<group>"; };
+		88BA2F5A1D8A0B62006C9C5D /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		88BA2F5B1D8A0B62006C9C5D /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		88BA2F601D8A1E11006C9C5D /* Bunk1SpotlightReelMaker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bunk1SpotlightReelMaker-Bridging-Header.h"; sourceTree = "<group>"; };
+		88BA2F611D8A1E11006C9C5D /* movietransitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = movietransitions.swift; sourceTree = "<group>"; };
+		88BA2F631D8A2356006C9C5D /* 1.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 1.MOV; sourceTree = "<group>"; };
+		88BA2F641D8A2356006C9C5D /* 2.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 2.MOV; sourceTree = "<group>"; };
+		88CB17B21D936FAC0056B263 /* 02 Florida - My House.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02 Florida - My House.mp3"; sourceTree = "<group>"; };
+		88CB17B41D9370D70056B263 /* LAoutro.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LAoutro.PNG; path = ../LAoutro.PNG; sourceTree = "<group>"; };
+		88CB17B51D9370D70056B263 /* LAintro.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LAintro.PNG; path = ../LAintro.PNG; sourceTree = "<group>"; };
+		88CB17B91D93711D0056B263 /* IMG_2354.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2354.JPG; sourceTree = "<group>"; };
+		88CB17BA1D93711D0056B263 /* IMG_2361.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2361.JPG; sourceTree = "<group>"; };
+		88CB17BB1D93711D0056B263 /* IMG_2368.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2368.JPG; sourceTree = "<group>"; };
+		88CB17BC1D93711D0056B263 /* IMG_2369.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2369.JPG; sourceTree = "<group>"; };
+		88CB17BE1D93711D0056B263 /* IMG_2380.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2380.JPG; sourceTree = "<group>"; };
+		88CB17BF1D93711D0056B263 /* IMG_2383.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2383.JPG; sourceTree = "<group>"; };
+		88CB17C01D93711D0056B263 /* IMG_2386.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2386.JPG; sourceTree = "<group>"; };
+		88CB17C11D93711D0056B263 /* IMG_2387.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2387.JPG; sourceTree = "<group>"; };
+		88CB17C21D93711D0056B263 /* IMG_2400.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2400.JPG; sourceTree = "<group>"; };
+		88CB17C31D93711D0056B263 /* IMG_2401.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2401.JPG; sourceTree = "<group>"; };
+		88CB17C41D93711D0056B263 /* IMG_2404.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2404.JPG; sourceTree = "<group>"; };
+		88CB17C51D93711D0056B263 /* IMG_2405.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2405.JPG; sourceTree = "<group>"; };
+		88CB17C61D93711D0056B263 /* IMG_2408.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2408.JPG; sourceTree = "<group>"; };
+		88CB17C71D93711D0056B263 /* IMG_2409.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2409.JPG; sourceTree = "<group>"; };
+		88CB17C81D93711D0056B263 /* IMG_2412.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2412.JPG; sourceTree = "<group>"; };
+		88CB17C91D93711D0056B263 /* IMG_2414.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2414.JPG; sourceTree = "<group>"; };
+		88CB17CA1D93711D0056B263 /* IMG_2425.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2425.JPG; sourceTree = "<group>"; };
+		88CB17CB1D93711D0056B263 /* IMG_2431.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2431.JPG; sourceTree = "<group>"; };
+		88CB17CE1D93711D0056B263 /* IMG_2438.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2438.JPG; sourceTree = "<group>"; };
+		88CB17CF1D93711D0056B263 /* IMG_2441.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2441.JPG; sourceTree = "<group>"; };
+		88CB17D01D93711D0056B263 /* IMG_2442.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2442.JPG; sourceTree = "<group>"; };
+		88CB17D21D93711D0056B263 /* IMG_2446.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2446.JPG; sourceTree = "<group>"; };
+		88CB17D31D93711D0056B263 /* IMG_2448.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2448.JPG; sourceTree = "<group>"; };
+		88CB17D41D93711D0056B263 /* IMG_2450.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2450.JPG; sourceTree = "<group>"; };
+		88CB17D51D93711D0056B263 /* IMG_2451.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2451.JPG; sourceTree = "<group>"; };
+		88CB17D61D93711D0056B263 /* IMG_2452.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2452.JPG; sourceTree = "<group>"; };
+		88CB17D71D93711D0056B263 /* IMG_2453.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2453.JPG; sourceTree = "<group>"; };
+		88CB17D81D93711D0056B263 /* IMG_2456.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2456.JPG; sourceTree = "<group>"; };
+		88CB17DA1D93711D0056B263 /* IMG_2458.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2458.JPG; sourceTree = "<group>"; };
+		88CB17DB1D93711D0056B263 /* IMG_2459.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2459.JPG; sourceTree = "<group>"; };
+		88D784061DAFEB8A002B1859 /* TPWW_InMyShoes_F1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TPWW_InMyShoes_F1.mp3; sourceTree = "<group>"; };
+		91D7E433814F10B39696F95A /* Pods-Bunk1SpotlightReelMakerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bunk1SpotlightReelMakerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bunk1SpotlightReelMakerTests/Pods-Bunk1SpotlightReelMakerTests.release.xcconfig"; sourceTree = "<group>"; };
+		A0C2F52C0736C38F874D5B33 /* Pods-Bunk1SpotlightReelMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bunk1SpotlightReelMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bunk1SpotlightReelMaker/Pods-Bunk1SpotlightReelMaker.release.xcconfig"; sourceTree = "<group>"; };
+		A54BCF638E6015F89E9B8C36 /* Pods-Bunk1SpotlightReelMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bunk1SpotlightReelMaker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bunk1SpotlightReelMaker/Pods-Bunk1SpotlightReelMaker.debug.xcconfig"; sourceTree = "<group>"; };
+		DD79984F631DC5F61FBF7966 /* Pods-Bunk1SpotlightReelMakerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bunk1SpotlightReelMakerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bunk1SpotlightReelMakerTests/Pods-Bunk1SpotlightReelMakerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DE91570D99A9BBAAF40872E6 /* Pods_Bunk1SpotlightReelMakerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bunk1SpotlightReelMakerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF3EE906A38CBA6F1611B4F7 /* Pods-Bunk1SpotlightReelMakerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bunk1SpotlightReelMakerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bunk1SpotlightReelMakerUITests/Pods-Bunk1SpotlightReelMakerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2F068D00FF51E80E641EAAC /* Pods_Bunk1SpotlightReelMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FDBE10992B7F581D1467C83 /* Pods_Bunk1SpotlightReelMakerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +198,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27014E3A31D425A6FAB8DF62 /* Pods_Bunk1SpotlightReelMakerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88227F662DAB8660E27579EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CD224A466541E5C90B6BF12 /* Pods_Bunk1SpotlightReelMaker.framework */,
+				DE91570D99A9BBAAF40872E6 /* Pods_Bunk1SpotlightReelMakerTests.framework */,
+				6AF5F42CE7FE156D6782330F /* Pods_Bunk1SpotlightReelMakerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		88BA2F121D89F74B006C9C5D = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +222,8 @@
 				88BA2F371D89F74B006C9C5D /* Bunk1SpotlightReelMakerTests */,
 				88BA2F421D89F74B006C9C5D /* Bunk1SpotlightReelMakerUITests */,
 				88BA2F1C1D89F74B006C9C5D /* Products */,
+				EF2B071891BFFF7467105F57 /* Pods */,
+				88227F662DAB8660E27579EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,13 +242,32 @@
 			children = (
 				88BA2F211D89F74B006C9C5D /* AppDelegate.h */,
 				88BA2F221D89F74B006C9C5D /* AppDelegate.m */,
+				88BA2F511D89FE60006C9C5D /* SpotlightHighlightReelCreator.h */,
+				88BA2F521D89FE60006C9C5D /* SpotlightHighlightReelCreator.m */,
 				88BA2F241D89F74B006C9C5D /* ViewController.h */,
 				88BA2F251D89F74B006C9C5D /* ViewController.m */,
+				88BA2F611D8A1E11006C9C5D /* movietransitions.swift */,
+				8822B4A31D8B343E000427F1 /* begin.png */,
+				8822B4A41D8B343E000427F1 /* end.png */,
+				88BA2F631D8A2356006C9C5D /* 1.MOV */,
+				88BA2F641D8A2356006C9C5D /* 2.MOV */,
+				88BA2F561D8A0B4E006C9C5D /* 1552-4.jpg */,
+				88CB17B81D93711D0056B263 /* Port Washington Astros */,
+				88BA2F5A1D8A0B62006C9C5D /* 1.jpg */,
+				8822B4931D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 */,
+				88CB17B21D936FAC0056B263 /* 02 Florida - My House.mp3 */,
+				8822B4941D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 */,
+				8822B4951D8B3220000427F1 /* TB - Disney Funk 124bpm.mp3 */,
+				8822B4961D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 */,
+				88D784061DAFEB8A002B1859 /* TPWW_InMyShoes_F1.mp3 */,
+				88BA2F5B1D8A0B62006C9C5D /* 2.jpg */,
+				88BA2F541D8A0B49006C9C5D /* alpaca.jpeg */,
 				88BA2F271D89F74B006C9C5D /* Main.storyboard */,
 				88BA2F2A1D89F74B006C9C5D /* Assets.xcassets */,
 				88BA2F2C1D89F74B006C9C5D /* LaunchScreen.storyboard */,
 				88BA2F2F1D89F74B006C9C5D /* Info.plist */,
 				88BA2F1E1D89F74B006C9C5D /* Supporting Files */,
+				88BA2F601D8A1E11006C9C5D /* Bunk1SpotlightReelMaker-Bridging-Header.h */,
 			);
 			path = Bunk1SpotlightReelMaker;
 			sourceTree = "<group>";
@@ -140,6 +298,58 @@
 			path = Bunk1SpotlightReelMakerUITests;
 			sourceTree = "<group>";
 		};
+		88CB17B81D93711D0056B263 /* Port Washington Astros */ = {
+			isa = PBXGroup;
+			children = (
+				88CB17B51D9370D70056B263 /* LAintro.PNG */,
+				88CB17B41D9370D70056B263 /* LAoutro.PNG */,
+				88CB17B91D93711D0056B263 /* IMG_2354.JPG */,
+				88CB17BA1D93711D0056B263 /* IMG_2361.JPG */,
+				88CB17BB1D93711D0056B263 /* IMG_2368.JPG */,
+				88CB17BC1D93711D0056B263 /* IMG_2369.JPG */,
+				88CB17BE1D93711D0056B263 /* IMG_2380.JPG */,
+				88CB17BF1D93711D0056B263 /* IMG_2383.JPG */,
+				88CB17C01D93711D0056B263 /* IMG_2386.JPG */,
+				88CB17C11D93711D0056B263 /* IMG_2387.JPG */,
+				88CB17C21D93711D0056B263 /* IMG_2400.JPG */,
+				88CB17C31D93711D0056B263 /* IMG_2401.JPG */,
+				88CB17C41D93711D0056B263 /* IMG_2404.JPG */,
+				88CB17C51D93711D0056B263 /* IMG_2405.JPG */,
+				88CB17C61D93711D0056B263 /* IMG_2408.JPG */,
+				88CB17C71D93711D0056B263 /* IMG_2409.JPG */,
+				88CB17C81D93711D0056B263 /* IMG_2412.JPG */,
+				88CB17C91D93711D0056B263 /* IMG_2414.JPG */,
+				88CB17CA1D93711D0056B263 /* IMG_2425.JPG */,
+				88CB17CB1D93711D0056B263 /* IMG_2431.JPG */,
+				88CB17CE1D93711D0056B263 /* IMG_2438.JPG */,
+				88CB17CF1D93711D0056B263 /* IMG_2441.JPG */,
+				88CB17D01D93711D0056B263 /* IMG_2442.JPG */,
+				88CB17D21D93711D0056B263 /* IMG_2446.JPG */,
+				88CB17D31D93711D0056B263 /* IMG_2448.JPG */,
+				88CB17D41D93711D0056B263 /* IMG_2450.JPG */,
+				88CB17D51D93711D0056B263 /* IMG_2451.JPG */,
+				88CB17D61D93711D0056B263 /* IMG_2452.JPG */,
+				88CB17D71D93711D0056B263 /* IMG_2453.JPG */,
+				88CB17D81D93711D0056B263 /* IMG_2456.JPG */,
+				88CB17DA1D93711D0056B263 /* IMG_2458.JPG */,
+				88CB17DB1D93711D0056B263 /* IMG_2459.JPG */,
+			);
+			path = "Port Washington Astros";
+			sourceTree = "<group>";
+		};
+		EF2B071891BFFF7467105F57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A54BCF638E6015F89E9B8C36 /* Pods-Bunk1SpotlightReelMaker.debug.xcconfig */,
+				A0C2F52C0736C38F874D5B33 /* Pods-Bunk1SpotlightReelMaker.release.xcconfig */,
+				DD79984F631DC5F61FBF7966 /* Pods-Bunk1SpotlightReelMakerTests.debug.xcconfig */,
+				91D7E433814F10B39696F95A /* Pods-Bunk1SpotlightReelMakerTests.release.xcconfig */,
+				EF3EE906A38CBA6F1611B4F7 /* Pods-Bunk1SpotlightReelMakerUITests.debug.xcconfig */,
+				7107C88DEAFA4C1FF55B959A /* Pods-Bunk1SpotlightReelMakerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +357,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88BA2F481D89F74B006C9C5D /* Build configuration list for PBXNativeTarget "Bunk1SpotlightReelMaker" */;
 			buildPhases = (
+				527B4D245E2ECDB322522358 /* [CP] Check Pods Manifest.lock */,
 				88BA2F171D89F74B006C9C5D /* Sources */,
 				88BA2F181D89F74B006C9C5D /* Frameworks */,
 				88BA2F191D89F74B006C9C5D /* Resources */,
+				799962AB22F8A77AD20A45D0 /* [CP] Embed Pods Frameworks */,
+				50E7E6C0312F14B3BB2A5428 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,9 +377,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88BA2F4B1D89F74B006C9C5D /* Build configuration list for PBXNativeTarget "Bunk1SpotlightReelMakerTests" */;
 			buildPhases = (
+				AA52F221A12B745496BE1E97 /* [CP] Check Pods Manifest.lock */,
 				88BA2F301D89F74B006C9C5D /* Sources */,
 				88BA2F311D89F74B006C9C5D /* Frameworks */,
 				88BA2F321D89F74B006C9C5D /* Resources */,
+				9018CB193B8ED96D336E1394 /* [CP] Embed Pods Frameworks */,
+				CF0FE7BF7CB8DA5EF52E1D40 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,9 +398,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88BA2F4E1D89F74B006C9C5D /* Build configuration list for PBXNativeTarget "Bunk1SpotlightReelMakerUITests" */;
 			buildPhases = (
+				B67F5B869F7B0A9D4AD91489 /* [CP] Check Pods Manifest.lock */,
 				88BA2F3B1D89F74B006C9C5D /* Sources */,
 				88BA2F3C1D89F74B006C9C5D /* Frameworks */,
 				88BA2F3D1D89F74B006C9C5D /* Resources */,
+				F78FD76B8D6531954956A1BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,6 +425,7 @@
 				TargetAttributes = {
 					88BA2F1A1D89F74B006C9C5D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = YKL5CRQW8Z;
 					};
 					88BA2F331D89F74B006C9C5D = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -243,9 +462,55 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88BA2F5D1D8A0B62006C9C5D /* 1.jpg in Resources */,
+				88CB17DF1D93711D0056B263 /* IMG_2369.JPG in Resources */,
+				88CB17F61D93711D0056B263 /* IMG_2448.JPG in Resources */,
+				88CB17E41D93711D0056B263 /* IMG_2387.JPG in Resources */,
+				88CB17E21D93711D0056B263 /* IMG_2383.JPG in Resources */,
+				88CB17B31D936FAC0056B263 /* 02 Florida - My House.mp3 in Resources */,
+				88CB17F31D93711D0056B263 /* IMG_2442.JPG in Resources */,
+				88CB17E91D93711D0056B263 /* IMG_2408.JPG in Resources */,
+				88BA2F651D8A2356006C9C5D /* 1.MOV in Resources */,
+				88CB17E61D93711D0056B263 /* IMG_2401.JPG in Resources */,
+				88CB17EB1D93711D0056B263 /* IMG_2412.JPG in Resources */,
+				88CB17EA1D93711D0056B263 /* IMG_2409.JPG in Resources */,
+				88CB17FB1D93711D0056B263 /* IMG_2456.JPG in Resources */,
+				88BA2F661D8A2356006C9C5D /* 2.MOV in Resources */,
+				88CB17FE1D93711D0056B263 /* IMG_2459.JPG in Resources */,
+				88BA2F571D8A0B4E006C9C5D /* 1552-4.jpg in Resources */,
+				88CB17B61D9370D70056B263 /* LAoutro.PNG in Resources */,
+				88CB17E51D93711D0056B263 /* IMG_2400.JPG in Resources */,
+				88CB17F71D93711D0056B263 /* IMG_2450.JPG in Resources */,
+				88CB17FD1D93711D0056B263 /* IMG_2458.JPG in Resources */,
+				88CB17F81D93711D0056B263 /* IMG_2451.JPG in Resources */,
 				88BA2F2E1D89F74B006C9C5D /* LaunchScreen.storyboard in Resources */,
+				88CB17DD1D93711D0056B263 /* IMG_2361.JPG in Resources */,
+				88CB17F91D93711D0056B263 /* IMG_2452.JPG in Resources */,
+				88CB17B71D9370D70056B263 /* LAintro.PNG in Resources */,
+				88CB17F21D93711D0056B263 /* IMG_2441.JPG in Resources */,
+				88CB17FA1D93711D0056B263 /* IMG_2453.JPG in Resources */,
+				88BA2F551D8A0B49006C9C5D /* alpaca.jpeg in Resources */,
+				8822B49D1D8B3220000427F1 /* TB - Disney Funk 124bpm.mp3 in Resources */,
+				8822B49A1D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 in Resources */,
+				88CB17ED1D93711D0056B263 /* IMG_2425.JPG in Resources */,
+				88D784071DAFEB8A002B1859 /* TPWW_InMyShoes_F1.mp3 in Resources */,
+				88CB17E71D93711D0056B263 /* IMG_2404.JPG in Resources */,
+				88CB17DC1D93711D0056B263 /* IMG_2354.JPG in Resources */,
+				88CB17EC1D93711D0056B263 /* IMG_2414.JPG in Resources */,
+				8822B4971D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 in Resources */,
 				88BA2F2B1D89F74B006C9C5D /* Assets.xcassets in Resources */,
+				8822B4A81D8B343E000427F1 /* end.png in Resources */,
+				88CB17F51D93711D0056B263 /* IMG_2446.JPG in Resources */,
+				88CB17E81D93711D0056B263 /* IMG_2405.JPG in Resources */,
 				88BA2F291D89F74B006C9C5D /* Main.storyboard in Resources */,
+				88CB17F11D93711D0056B263 /* IMG_2438.JPG in Resources */,
+				8822B4A51D8B343E000427F1 /* begin.png in Resources */,
+				88CB17E11D93711D0056B263 /* IMG_2380.JPG in Resources */,
+				8822B4A01D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 in Resources */,
+				88BA2F5E1D8A0B62006C9C5D /* 2.jpg in Resources */,
+				88CB17E31D93711D0056B263 /* IMG_2386.JPG in Resources */,
+				88CB17EE1D93711D0056B263 /* IMG_2431.JPG in Resources */,
+				88CB17DE1D93711D0056B263 /* IMG_2368.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +518,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8822B49E1D8B3220000427F1 /* TB - Disney Funk 124bpm.mp3 in Resources */,
+				8822B4A91D8B343E000427F1 /* end.png in Resources */,
+				8822B4981D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 in Resources */,
+				88D784081DAFEB8A002B1859 /* TPWW_InMyShoes_F1.mp3 in Resources */,
+				8822B4A61D8B343E000427F1 /* begin.png in Resources */,
+				8822B4A11D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 in Resources */,
+				8822B49B1D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,18 +532,150 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8822B49F1D8B3220000427F1 /* TB - Disney Funk 124bpm.mp3 in Resources */,
+				8822B4AA1D8B343E000427F1 /* end.png in Resources */,
+				8822B4991D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 in Resources */,
+				88D784091DAFEB8A002B1859 /* TPWW_InMyShoes_F1.mp3 in Resources */,
+				8822B4A71D8B343E000427F1 /* begin.png in Resources */,
+				8822B4A21D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 in Resources */,
+				8822B49C1D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50E7E6C0312F14B3BB2A5428 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bunk1SpotlightReelMaker/Pods-Bunk1SpotlightReelMaker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		527B4D245E2ECDB322522358 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		799962AB22F8A77AD20A45D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bunk1SpotlightReelMaker/Pods-Bunk1SpotlightReelMaker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9018CB193B8ED96D336E1394 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bunk1SpotlightReelMakerTests/Pods-Bunk1SpotlightReelMakerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA52F221A12B745496BE1E97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B67F5B869F7B0A9D4AD91489 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CF0FE7BF7CB8DA5EF52E1D40 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bunk1SpotlightReelMakerTests/Pods-Bunk1SpotlightReelMakerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F78FD76B8D6531954956A1BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bunk1SpotlightReelMakerUITests/Pods-Bunk1SpotlightReelMakerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		88BA2F171D89F74B006C9C5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88BA2F531D89FE60006C9C5D /* SpotlightHighlightReelCreator.m in Sources */,
 				88BA2F261D89F74B006C9C5D /* ViewController.m in Sources */,
 				88BA2F231D89F74B006C9C5D /* AppDelegate.m in Sources */,
+				88BA2F621D8A1E11006C9C5D /* movietransitions.swift in Sources */,
 				88BA2F201D89F74B006C9C5D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +772,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -406,6 +811,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -413,28 +819,40 @@
 		};
 		88BA2F491D89F74B006C9C5D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A54BCF638E6015F89E9B8C36 /* Pods-Bunk1SpotlightReelMaker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YKL5CRQW8Z;
 				INFOPLIST_FILE = Bunk1SpotlightReelMaker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myspotlight.Bunk1SpotlightReelMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bunk1SpotlightReelMaker/Bunk1SpotlightReelMaker-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		88BA2F4A1D89F74B006C9C5D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0C2F52C0736C38F874D5B33 /* Pods-Bunk1SpotlightReelMaker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YKL5CRQW8Z;
 				INFOPLIST_FILE = Bunk1SpotlightReelMaker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myspotlight.Bunk1SpotlightReelMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bunk1SpotlightReelMaker/Bunk1SpotlightReelMaker-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		88BA2F4C1D89F74B006C9C5D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD79984F631DC5F61FBF7966 /* Pods-Bunk1SpotlightReelMakerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Bunk1SpotlightReelMakerTests/Info.plist;
@@ -447,6 +865,7 @@
 		};
 		88BA2F4D1D89F74B006C9C5D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91D7E433814F10B39696F95A /* Pods-Bunk1SpotlightReelMakerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Bunk1SpotlightReelMakerTests/Info.plist;
@@ -459,6 +878,7 @@
 		};
 		88BA2F4F1D89F74B006C9C5D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF3EE906A38CBA6F1611B4F7 /* Pods-Bunk1SpotlightReelMakerUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Bunk1SpotlightReelMakerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -470,6 +890,7 @@
 		};
 		88BA2F501D89F74B006C9C5D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7107C88DEAFA4C1FF55B959A /* Pods-Bunk1SpotlightReelMakerUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Bunk1SpotlightReelMakerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -498,6 +919,7 @@
 				88BA2F4A1D89F74B006C9C5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88BA2F4B1D89F74B006C9C5D /* Build configuration list for PBXNativeTarget "Bunk1SpotlightReelMakerTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +928,7 @@
 				88BA2F4D1D89F74B006C9C5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88BA2F4E1D89F74B006C9C5D /* Build configuration list for PBXNativeTarget "Bunk1SpotlightReelMakerUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +937,7 @@
 				88BA2F501D89F74B006C9C5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

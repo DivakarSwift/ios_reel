@@ -24,7 +24,12 @@
 
 @property(weak, nonatomic) UIViewController<SpotlightReelCreatorDelegateProtocol>* spotlightReelCreatorDelegate;
 
+- (void)createMontageWithMedia:(NSArray*)mediaArray;
 + (SpotlightHighlightReelCreator *)sharedCreator;
 - (void)createMontageWithMedia:(NSArray*)mediaArray shouldSave:(BOOL)shouldSave;
-
+- (NSURL*)synchronouslyreateVideoFromImage:(UIImage*)image duration:(NSInteger)duration name:(NSString*)name completion:(void (^)(void))completion;
+- (void)createMontageWithMedia:(NSArray*)mediaArray
+                     songTitle:(NSString*)songTitle
+                    shouldSave:(BOOL)shouldSave
+                 savedFileName:(NSString*)savedFileName;
 @end
