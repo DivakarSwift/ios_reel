@@ -31,5 +31,6 @@
 - (void)createMontageWithMedia:(NSArray*)mediaArray
                      songTitle:(NSString*)songTitle
                     shouldSave:(BOOL)shouldSave
-                 savedFileName:(NSString*)savedFileName;
+                 savedFileName:(NSString*)savedFileName
+                    completion:(void (^)(void))completion;
 @end

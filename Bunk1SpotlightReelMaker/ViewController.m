@@ -39,17 +39,15 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFormData:[@"2p0111g41" dataUsingEncoding:NSUTF8StringEncoding] name:@"password"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", responseObject);
-        [self getVidURLsForUser:555218 camp:262 token:responseObject[@"token"] manager:manager completion:^{
+        [self getVidURLsForUser:522485 camp:262 token:responseObject[@"token"] manager:manager completion:^{
             
         }];
 
-//        [self makeGetUsersCallFromCampId:262 token:responseObject[@"token"] manager:manager];
+ //       [self makeGetUsersCallFromCampId:262 token:responseObject[@"token"] manager:manager];
        // [self makeCampsCallWithToken:responseObject[@"token"] manager:manager];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
-    
-
 }
 
 - (void)makeCampsCallWithToken:(NSString*)token manager:(AFHTTPRequestOperationManager*)manager {
@@ -77,15 +75,16 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"DID IT! %@",responseObject);
              for (NSDictionary *user in responseObject[@"users"]) {
+                 __block bool shouldContinue = NO;
                  [self getVidURLsForUser:[user[@"id"] intValue] camp:campId token:token manager:manager completion:^{
-                     
+                     shouldContinue = YES;
                  }];
-                 
-//                 [NSThread sleepForTimeInterval:20];
+                 if (!shouldContinue){
+                     [NSThread sleepForTimeInterval:1];
+                 }
              }
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             // Handle failure communicating with your server
              NSLog(@"Client Token request failed.%@",operation.responseString);
              NSLog(@"error code %ld",(long)[operation.response statusCode]);
          }];
@@ -102,11 +101,11 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
              for (NSDictionary* imageObject in responseObject[@"photos"]) {
                  [urlArray addObject:imageObject[@"url"]];
              }
-            // __block dispatch_semaphore_t sem = dispatch_semaphore_create(0);
-           //  [self makeVidWithURLs:urlArray campId:campId userId:userId completion:nil];
-            // dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
-             [self makeSampleVidWithURLs:urlArray campId:campId userId:userId];
-            // [self test:urlArray campId:campId userId:userId completion:nil];
+             if ([urlArray count] > 0) {
+                 [self makeVidWithURLs:urlArray campId:campId userId:userId completion:^{
+                     [self makeSampleVidWithURLs:urlArray campId:campId userId:userId completion:completion];
+                 }];
+             }
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              // Handle failure communicating with your server
@@ -115,7 +114,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
          }];
 
 }
-- (void)makeSampleVidWithURLs:(NSArray*)urlz campId:(int)campId userId:(int)userId{
+- (void)makeSampleVidWithURLs:(NSArray*)urlz campId:(int)campId userId:(int)userId completion:(void (^)(void))completion{
     
     NSMutableArray* urlArray = [urlz mutableCopy];
     [urlArray insertObject:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/org_%d.jpg",campId] atIndex:0];
@@ -155,7 +154,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     }
 
     NSString* sampleName = [self sha1:[NSString stringWithFormat:@"%d_2016_sample", userId]];
-    [[SpotlightHighlightReelCreator sharedCreator] createMontageWithMedia:finalMediaArrayPaths songTitle:@"TPWW_InMyShoes_F1" shouldSave:YES savedFileName:sampleName];
+    [[SpotlightHighlightReelCreator sharedCreator] createMontageWithMedia:finalMediaArrayPaths songTitle:@"TPWW_InMyShoes_F1" shouldSave:YES savedFileName:sampleName completion:^{
+        if (completion) completion();
+    }];
 }
 
 - (void)makeVidWithURLs:(NSArray*)urlz campId:(int)campId userId:(int)userId completion:(void (^)(void))completion{
@@ -198,7 +199,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [finalMediaArrayPaths addObject: [[[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[NSString stringWithFormat:@"%i.mov", j]] absoluteString]];
     }
     NSString* reelName = [self sha1:[NSString stringWithFormat:@"%d_2016", userId]];
-    [[SpotlightHighlightReelCreator sharedCreator] createMontageWithMedia:finalMediaArrayPaths songTitle:@"TPWW_InMyShoes_F1" shouldSave:YES savedFileName:reelName];
+    [[SpotlightHighlightReelCreator sharedCreator] createMontageWithMedia:finalMediaArrayPaths songTitle:@"TPWW_InMyShoes_F1" shouldSave:YES savedFileName:reelName completion:^{
+        if (completion) completion();
+    }];
 }
 
 -(NSURL*)createEndVid {

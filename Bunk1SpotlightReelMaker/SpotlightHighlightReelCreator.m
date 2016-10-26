@@ -328,7 +328,8 @@
 - (void)createMontageWithMedia:(NSArray*)mediaArray
                      songTitle:(NSString*)songTitle
                     shouldSave:(BOOL)shouldSave
-                 savedFileName:(NSString*)savedFileName{
+                 savedFileName:(NSString*)savedFileName
+                    completion:(void (^)(void))completion{
     
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -400,14 +401,27 @@
             [self.spotlightReelCreatorDelegate spotlightHighlightReelCreator:self didFailWithError:error];
         }
     }
-    NSURL *audio_url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:songTitle ofType:@"mp3"]];
-    AVURLAsset  *audioAsset = [[AVURLAsset alloc]initWithURL:audio_url options:nil];
-    AVMutableCompositionTrack *audioTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio
-                                                                        preferredTrackID:kCMPersistentTrackID_Invalid];
-    [audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, totalDuration)
-                        ofTrack:[[audioAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0] atTime:kCMTimeZero error:nil];
+    
     [manager removeItemAtPath:myPathDocs error:nil];
     
+    
+    NSURL *audio_url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:songTitle ofType:@"mp3"]];
+    AVURLAsset  *audioAsset = [[AVURLAsset alloc] initWithURL:audio_url options:nil];
+    AVMutableCompositionTrack *audioTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio
+                                                                        preferredTrackID:kCMPersistentTrackID_Invalid];
+    
+    AVMutableAudioMix *mutableAudioMix = [AVMutableAudioMix audioMix];
+    // Create the audio mix input parameters object.
+    AVMutableAudioMixInputParameters *mixParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:audioTrack];
+    // Set the volume ramp to slowly fade the audio out over the duration of the composition.
+    [mixParameters setVolumeRampFromStartVolume:0.f toEndVolume:1.f timeRange:CMTimeRangeMake(kCMTimeZero, mixComposition.duration)];
+    // Attach the input parameters to the audio mix.
+    mutableAudioMix.inputParameters = @[mixParameters];
+
+
+    [audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, totalDuration)
+                        ofTrack:[[audioAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0] atTime:kCMTimeZero error:nil];
+//    
     NSMutableArray* instructions = [NSMutableArray array];
     
     AVMutableVideoCompositionInstruction *videoCompositionInstruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
@@ -430,19 +444,19 @@
         session.outputURL = fileURL2;
         session.outputFileType = AVFileTypeMPEG4;
         [manager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:fileName2] error:nil];
-//        while (session.status == AVAssetExportSessionStatusUnknown){}
         [session exportAsynchronouslyWithCompletionHandler:^(void ){
             if (session.error) {
-                NSLog(@"%@", session.error.userInfo);
+                NSLog(@"Fuck, session error: %@", session.error.userInfo);
+            }else {
+                NSLog(@"TADA!");
             }
-            NSLog(@"TADA!");
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.spotlightReelCreatorDelegate spotlightHighlightReelCreator:self didFinishWithPlayerItem:playerItem savedUrl:fileURL2];
+                if (completion) completion();
             });
         }];
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.spotlightReelCreatorDelegate spotlightHighlightReelCreator:self didFinishWithPlayerItem:playerItem savedUrl:nil];
+            if (completion) completion();
         });
     }
 }
