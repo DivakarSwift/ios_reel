@@ -102,9 +102,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                  [urlArray addObject:imageObject[@"url"]];
              }
              if ([urlArray count] > 0) {
-                 [self makeVidWithURLs:urlArray campId:campId userId:userId completion:^{
+          //       [self makeVidWithURLs:urlArray campId:campId userId:userId completion:^{
                      [self makeSampleVidWithURLs:urlArray campId:campId userId:userId completion:completion];
-                 }];
+          //       }];
              }
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -153,10 +153,22 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [finalMediaArrayPaths addObject: [[[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[NSString stringWithFormat:@"%i.mov", j]] absoluteString]];
     }
 
-    NSString* sampleName = [self sha1:[NSString stringWithFormat:@"%d_2016_sample", userId]];
+    __block NSString* sampleName = [self sha1:[NSString stringWithFormat:@"%d_2016_sample", userId]];
     [[SpotlightHighlightReelCreator sharedCreator] createMontageWithMedia:finalMediaArrayPaths songTitle:@"TPWW_InMyShoes_F1" shouldSave:YES savedFileName:sampleName completion:^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSURL* filename = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4", sampleName]];
+            NSLog (@"Playing from : %@", filename.absoluteString);
+
+            AVPlayer *player = [AVPlayer playerWithURL:filename];
+            AVPlayerViewController *playerViewController = [AVPlayerViewController new];
+            playerViewController.player = player;
+            [playerViewController.player play];//Used to Play On start
+            [self presentViewController:playerViewController animated:YES completion:nil];
+        });
         if (completion) completion();
     }];
+    
+    
 }
 
 - (void)makeVidWithURLs:(NSArray*)urlz campId:(int)campId userId:(int)userId completion:(void (^)(void))completion{
@@ -202,6 +214,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [[SpotlightHighlightReelCreator sharedCreator] createMontageWithMedia:finalMediaArrayPaths songTitle:@"TPWW_InMyShoes_F1" shouldSave:YES savedFileName:reelName completion:^{
         if (completion) completion();
     }];
+    
+
 }
 
 -(NSURL*)createEndVid {

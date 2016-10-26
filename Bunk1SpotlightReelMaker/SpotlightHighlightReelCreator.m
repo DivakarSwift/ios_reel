@@ -404,24 +404,22 @@
     
     [manager removeItemAtPath:myPathDocs error:nil];
     
-    
     NSURL *audio_url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:songTitle ofType:@"mp3"]];
-    AVURLAsset  *audioAsset = [[AVURLAsset alloc] initWithURL:audio_url options:nil];
-    AVMutableCompositionTrack *audioTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio
-                                                                        preferredTrackID:kCMPersistentTrackID_Invalid];
+    AVURLAsset *soundTrackAsset = [[AVURLAsset alloc]initWithURL:audio_url options:nil];
+    AVMutableCompositionTrack *compositionAudioSoundTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:1];
+    [compositionAudioSoundTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, totalDuration)
+                                            ofTrack:[[soundTrackAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0]
+                                             atTime:kCMTimeZero error:nil];
+
+    AVMutableAudioMix *audioMix = [AVMutableAudioMix audioMix];
+
+    CMTime endAudioFadeDuration = CMTimeMakeWithSeconds(3, 1);
+    CMTime startAudioEndFadeTime = CMTimeSubtract(totalDuration, endAudioFadeDuration);
+    AVMutableAudioMixInputParameters *audioInputParams = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:compositionAudioSoundTrack] ;
+    [audioInputParams setVolumeRampFromStartVolume:.99f toEndVolume:.0f timeRange:CMTimeRangeMake(startAudioEndFadeTime, endAudioFadeDuration)];
+    [audioInputParams setTrackID:compositionAudioSoundTrack.trackID];
+    audioMix.inputParameters = [NSArray arrayWithObject:audioInputParams];
     
-    AVMutableAudioMix *mutableAudioMix = [AVMutableAudioMix audioMix];
-    // Create the audio mix input parameters object.
-    AVMutableAudioMixInputParameters *mixParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:audioTrack];
-    // Set the volume ramp to slowly fade the audio out over the duration of the composition.
-    [mixParameters setVolumeRampFromStartVolume:0.f toEndVolume:1.f timeRange:CMTimeRangeMake(kCMTimeZero, mixComposition.duration)];
-    // Attach the input parameters to the audio mix.
-    mutableAudioMix.inputParameters = @[mixParameters];
-
-
-    [audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, totalDuration)
-                        ofTrack:[[audioAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0] atTime:kCMTimeZero error:nil];
-//    
     NSMutableArray* instructions = [NSMutableArray array];
     
     AVMutableVideoCompositionInstruction *videoCompositionInstruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
@@ -442,8 +440,11 @@
         NSString *fileName2 = [NSString stringWithFormat:@"%@.mp4", savedFileName];
         NSURL *fileURL2 = [NSURL fileURLWithPath:[documentsDirectory stringByAppendingPathComponent:fileName2]];
         session.outputURL = fileURL2;
+        session.audioMix = audioMix;
         session.outputFileType = AVFileTypeMPEG4;
         [manager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:fileName2] error:nil];
+        NSLog (@"Exporting to: %@", fileURL2.absoluteString);
+        
         [session exportAsynchronouslyWithCompletionHandler:^(void ){
             if (session.error) {
                 NSLog(@"Fuck, session error: %@", session.error.userInfo);
