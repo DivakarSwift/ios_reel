@@ -436,13 +436,20 @@
     playerItem.videoComposition = mutableVideoComposition;
     
     if (shouldSave) {
+        
+        NSArray* cachePathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString* cachePath = [cachePathArray lastObject];
+        
+        
         AVAssetExportSession *session = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetHighestQuality];
         NSString *fileName2 = [NSString stringWithFormat:@"%@.mp4", savedFileName];
-        NSURL *fileURL2 = [NSURL fileURLWithPath:[documentsDirectory stringByAppendingPathComponent:fileName2]];
+        NSURL *fileURL2 = [NSURL fileURLWithPath:[cachePath stringByAppendingPathComponent:fileName2]];
         session.outputURL = fileURL2;
         session.audioMix = audioMix;
         session.outputFileType = AVFileTypeMPEG4;
-        [manager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:fileName2] error:nil];
+        
+
+        [manager removeItemAtPath:[cachePath stringByAppendingPathComponent:fileName2] error:nil];
         NSLog (@"Exporting to: %@", fileURL2.absoluteString);
         
         [session exportAsynchronouslyWithCompletionHandler:^(void ){

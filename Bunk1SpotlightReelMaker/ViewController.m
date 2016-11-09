@@ -32,33 +32,31 @@
     
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
     
-    [manager POST:@"http://rollcallstaging.com/api/spotlight/sign-in"
+    [manager POST:@"https://bunk1.com/api/spotlight/sign-in"
        parameters:nil
 constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFormData:[@"Spotlight" dataUsingEncoding:NSUTF8StringEncoding] name:@"username"];
         [formData appendPartWithFormData:[@"2p0111g41" dataUsingEncoding:NSUTF8StringEncoding] name:@"password"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", responseObject);
-        [self getVidURLsForUser:522485 camp:262 token:responseObject[@"token"] manager:manager completion:^{
-            
-        }];
-
- //       [self makeGetUsersCallFromCampId:262 token:responseObject[@"token"] manager:manager];
-       // [self makeCampsCallWithToken:responseObject[@"token"] manager:manager];
+//        [self getVidURLsForUser:488490 camp:433 token:responseObject[@"token"] manager:manager completion:^{
+//        
+//        }];
+        [self makeGetUsersCallFromCampId:433 startUserId:340882 token:responseObject[@"token"] manager:manager];
+ //       [self makeCampsCallWithToken:responseObject[@"token"] manager:manager];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
 }
 
 - (void)makeCampsCallWithToken:(NSString*)token manager:(AFHTTPRequestOperationManager*)manager {
- //   manager.responseSerializer = [AFJSONResponseSerializer serializer];
- //   manager.requestSerializer = [AFJSONRequestSerializer serializer];
+
     [manager.requestSerializer setValue:[NSString stringWithFormat:@"Token token=%@", token] forHTTPHeaderField:@"Authorization"];
-    [manager GET:@"http://secure.rollcallstaging.com/api/spotlight/organization"
+    [manager GET:@"https://bunk1.com/api/spotlight/organization"
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"DID IT! %@",responseObject);
-             [self makeGetUsersCallFromCampId:[responseObject[@"camps"][0][@"id"] intValue] token:token manager:manager];
+             [self makeGetUsersCallFromCampId:[responseObject[@"camps"][0][@"id"] intValue] startUserId:0 token:token manager:manager];
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              // Handle failure communicating with your server
@@ -67,22 +65,26 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
          }];
 }
 
-- (void)makeGetUsersCallFromCampId:(int)campId token:(NSString*)token manager:(AFHTTPRequestOperationManager*)manager {
+- (void)makeGetUsersCallFromCampId:(int)campId startUserId:(int)startUserId token:(NSString*)token manager:(AFHTTPRequestOperationManager*)manager {
     [manager.requestSerializer setValue:[NSString stringWithFormat:@"Token token=%@", token] forHTTPHeaderField:@"Authorization"];
-    NSString* url = [NSString stringWithFormat:@"http://rollcallstaging.com/api/spotlight/organization/%i/users", campId];
+    NSString* url = [NSString stringWithFormat:@"https://bunk1.com/api/spotlight/organization/%i/users", campId];
     [manager GET:url
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSLog(@"DID IT! %@",responseObject);
-             for (NSDictionary *user in responseObject[@"users"]) {
-                 __block bool shouldContinue = NO;
-                 [self getVidURLsForUser:[user[@"id"] intValue] camp:campId token:token manager:manager completion:^{
-                     shouldContinue = YES;
-                 }];
-                 if (!shouldContinue){
-                     [NSThread sleepForTimeInterval:1];
+             NSLog(@"Got %lu users to create vids for",[responseObject[@"users"] count]);
+             NSArray* usersArray;
+             if (startUserId != 0) {
+                 for(int i = 0; i < [responseObject[@"users"] count]; i++){
+                     if (startUserId == [responseObject[@"users"][i][@"id"] intValue]) {
+                         usersArray = [responseObject[@"users"] subarrayWithRange:NSMakeRange(i, [responseObject[@"users"] count] - i)];
+                     }
                  }
+             }else{
+                 usersArray = responseObject[@"users"];
              }
+             [self getVidURLsForUsers:usersArray camp:campId token:token manager:manager completion:^{
+                 
+             }];
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Client Token request failed.%@",operation.responseString);
@@ -90,9 +92,13 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
          }];
 }
 
-- (void)getVidURLsForUser:(int)userId camp:(int)campId token:(NSString*)token manager:(AFHTTPRequestOperationManager*)manager completion:(void (^)(void))completion {
+- (void)getVidURLsForUsers:(NSArray*)userArray camp:(int)campId token:(NSString*)token manager:(AFHTTPRequestOperationManager*)manager completion:(void (^)(void))completion {
+    if ([userArray count] == 0) return;
+    int userId = [userArray[0][@"id"] intValue];
     [manager.requestSerializer setValue:[NSString stringWithFormat:@"Token token=%@", token] forHTTPHeaderField:@"Authorization"];
-    NSString* url = [NSString stringWithFormat:@"http://rollcallstaging.com/api/spotlight/organization/%i/user/%i/favorites", campId, userId];
+    NSString* url = [NSString stringWithFormat:@"https://bunk1.com/api/spotlight/organization/%i/user/%i/favorites", campId, userId];
+    NSLog(@"Asking for favorites for user %d\nOnly %lu videos left to go...",userId, (unsigned long)[userArray count]);
+    
     [manager GET:url
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -102,9 +108,52 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                  [urlArray addObject:imageObject[@"url"]];
              }
              if ([urlArray count] > 0) {
-          //       [self makeVidWithURLs:urlArray campId:campId userId:userId completion:^{
+                 NSLog(@"good to make vid &*(");
+             } else {
+                 NSLog(@"bad to make vid!@#");
+             }
+             if ([urlArray count] > 0) {
+                 [self makeVidWithURLs:urlArray campId:campId userId:userId completion:^{
+                     [self makeSampleVidWithURLs:urlArray campId:campId userId:userId completion:^{
+                             NSMutableArray* oneLessUserArray = [NSMutableArray arrayWithArray:userArray];
+                             [oneLessUserArray removeObjectAtIndex:0];
+                             [self getVidURLsForUsers:[NSArray arrayWithArray:oneLessUserArray] camp:campId token:token manager:manager completion:^{
+                                   completion();
+                             }];
+                     }];
+                 }];
+             } else {
+                 NSMutableArray* oneLessUserArray = [NSMutableArray arrayWithArray:userArray];
+                 [oneLessUserArray removeObjectAtIndex:0];
+                 [self getVidURLsForUsers:[NSArray arrayWithArray:oneLessUserArray] camp:campId token:token manager:manager completion:^{
+                     completion();
+                 }];
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             // Handle failure communicating with your server
+             NSLog(@"Client Token request failed.%@",operation.responseString);
+             NSLog(@"error code %ld",(long)[operation.response statusCode]);
+         }];
+}
+
+- (void)getVidURLsForUser:(int)userId camp:(int)campId token:(NSString*)token manager:(AFHTTPRequestOperationManager*)manager completion:(void (^)(void))completion {
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"Token token=%@", token] forHTTPHeaderField:@"Authorization"];
+    NSString* url = [NSString stringWithFormat:@"https://bunk1.com/spotlight/organization/%i/user/%i/favorites", campId, userId];
+    NSLog(@"Asking for favorites for user %d",userId);
+
+    [manager GET:url
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"Got vid for ! %@",responseObject);
+             NSMutableArray* urlArray = [NSMutableArray array];
+             for (NSDictionary* imageObject in responseObject[@"photos"]) {
+                 [urlArray addObject:imageObject[@"url"]];
+             }
+             if ([urlArray count] > 0) {
+                 [self makeVidWithURLs:urlArray campId:campId userId:userId completion:^{
                      [self makeSampleVidWithURLs:urlArray campId:campId userId:userId completion:completion];
-          //       }];
+                 }];
              }
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -117,7 +166,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 - (void)makeSampleVidWithURLs:(NSArray*)urlz campId:(int)campId userId:(int)userId completion:(void (^)(void))completion{
     
     NSMutableArray* urlArray = [urlz mutableCopy];
-    [urlArray insertObject:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/org_%d.jpg",campId] atIndex:0];
+    [urlArray insertObject:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/end_org_%d.png",campId] atIndex:0];
     MovieTransitions* mov = [[MovieTransitions alloc] init];
     
     int i = 0;
@@ -135,7 +184,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         NSLog(@"finished a vid");
         i++;
     }
-    image = [self getImageFromURL:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/end_org_%d.jpg",campId]];
+    image = [self getImageFromURL:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/preview_end.png"]];
     fileURL = [[SpotlightHighlightReelCreator sharedCreator] synchronouslyreateVideoFromImage:image
                                                                                      duration:3
                                                                                          name:[NSString stringWithFormat:@"%lu",(unsigned long)[AVURLAssets count]]
@@ -145,7 +194,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     NSLog(@"finished a vid");
     NSMutableArray* finalMediaArrayPaths = [NSMutableArray array];
     
-    // create trans
+//
     NSArray* doubleAssets;
     for (int j = 0; j+1 < [AVURLAssets count]; j++) {
         doubleAssets = @[ AVURLAssets[j], AVURLAssets[j+1] ];
@@ -155,16 +204,17 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 
     __block NSString* sampleName = [self sha1:[NSString stringWithFormat:@"%d_2016_sample", userId]];
     [[SpotlightHighlightReelCreator sharedCreator] createMontageWithMedia:finalMediaArrayPaths songTitle:@"TPWW_InMyShoes_F1" shouldSave:YES savedFileName:sampleName completion:^{
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSURL* filename = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4", sampleName]];
-            NSLog (@"Playing from : %@", filename.absoluteString);
-
-            AVPlayer *player = [AVPlayer playerWithURL:filename];
-            AVPlayerViewController *playerViewController = [AVPlayerViewController new];
-            playerViewController.player = player;
-            [playerViewController.player play];//Used to Play On start
-            [self presentViewController:playerViewController animated:YES completion:nil];
-        });
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+////            NSURL* filename = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4", sampleName]];
+////            NSLog (@"Playing from : %@", filename.absoluteString);
+////
+////            AVPlayer *player = [AVPlayer playerWithURL:filename];
+////            AVPlayerViewController *playerViewController = [AVPlayerViewController new];
+////            playerViewController.player = player;
+////            [playerViewController.player play];//Used to Play On start
+////            [self presentViewController:playerViewController animated:YES completion:nil];
+//            [self.view setBackgroundColor:[UIColor greenColor]];
+//        });
         if (completion) completion();
     }];
     
@@ -174,7 +224,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 - (void)makeVidWithURLs:(NSArray*)urlz campId:(int)campId userId:(int)userId completion:(void (^)(void))completion{
     
     NSMutableArray* urlArray = [urlz mutableCopy];
-    [urlArray insertObject:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/org_%d.jpg",campId] atIndex:0];
+    [urlArray insertObject:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/end_org_%d.png",campId] atIndex:0];
     MovieTransitions* mov = [[MovieTransitions alloc] init];
     
     int i = 0;
@@ -193,7 +243,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         i++;
     }
 
-    image = [self getImageFromURL:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/end_org_%d.jpg",campId]];
+    image = [self getImageFromURL:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/end_org_%d.png",campId]];
     fileURL = [[SpotlightHighlightReelCreator sharedCreator] synchronouslyreateVideoFromImage:image
                                                                                      duration:3
                                                                                          name:[NSString stringWithFormat:@"%lu",(unsigned long)[AVURLAssets count]]
@@ -214,8 +264,6 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [[SpotlightHighlightReelCreator sharedCreator] createMontageWithMedia:finalMediaArrayPaths songTitle:@"TPWW_InMyShoes_F1" shouldSave:YES savedFileName:reelName completion:^{
         if (completion) completion();
     }];
-    
-
 }
 
 -(NSURL*)createEndVid {
@@ -228,7 +276,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         NSLog(@"Error removing file at path: %@", error.localizedDescription);
     }
     NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileLocation]];
-    UIImage* image = [UIImage imageWithData:data];    NSURL* fileURL = [[SpotlightHighlightReelCreator sharedCreator] synchronouslyreateVideoFromImage:image
+    UIImage* image = [UIImage imageWithData:data];
+    NSURL* fileURL = [[SpotlightHighlightReelCreator sharedCreator] synchronouslyreateVideoFromImage:image
                                                                                             duration:4
                                                                                                 name:@"d"
                                                                                           completion:^{
@@ -316,25 +365,6 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     // Dispose of any resources that can be recreated.
 }
 
-//   [NSThread sleepForTimeInterval:2.5];
-
-//    AVMutableComposition* composition= [[AVMutableComposition alloc] init];
-//    [mov makeTheMovies:AVURLAssets name:@"1" ];
-
-
-//    AVMutableComposition* composition= [[AVMutableComposition alloc] init];
-//    [mov makeTheMovies:composition movieAssets:@[ AVURLAssets[0], AVURLAssets[1] ] name:@"1" ];
-//    NSArray* doubleAssets;
-//    for (int i = 2; i < [urlArray count]; i++) {
-//        NSURL* assetLocation = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[NSString stringWithFormat:@"%i.mov", i - 1]];
-//        NSLog(@"Picking up created vid at %@", assetLocation.absoluteString);
-//        AVURLAsset *asset = [self getAVAssetFromLocalUrl:assetLocation];
-//        doubleAssets = @[ asset, AVURLAssets[i] ];
-//        composition  = [[AVMutableComposition alloc] init];
-//        [mov makeTheMovies:composition movieAssets:doubleAssets name:[NSString stringWithFormat:@"%i",i] ];
-//        self.lastAssetURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[NSString stringWithFormat:@"%i.mov", i]];
-//    }
-//
 
 -(NSString*)sha1:(NSString*)string
 {
