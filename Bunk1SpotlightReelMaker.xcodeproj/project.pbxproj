@@ -27,6 +27,7 @@
 		8822B4A81D8B343E000427F1 /* end.png in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4A41D8B343E000427F1 /* end.png */; };
 		8822B4A91D8B343E000427F1 /* end.png in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4A41D8B343E000427F1 /* end.png */; };
 		8822B4AA1D8B343E000427F1 /* end.png in Resources */ = {isa = PBXBuildFile; fileRef = 8822B4A41D8B343E000427F1 /* end.png */; };
+		888210E51DD512E3001B7A7B /* 955.json in Resources */ = {isa = PBXBuildFile; fileRef = 888210E41DD512E3001B7A7B /* 955.json */; };
 		88BA2F201D89F74B006C9C5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F1F1D89F74B006C9C5D /* main.m */; };
 		88BA2F231D89F74B006C9C5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F221D89F74B006C9C5D /* AppDelegate.m */; };
 		88BA2F261D89F74B006C9C5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA2F251D89F74B006C9C5D /* ViewController.m */; };
@@ -109,6 +110,7 @@
 		8822B4961D8B3220000427F1 /* DT_TheDuff_CoolKids_INST130.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = DT_TheDuff_CoolKids_INST130.mp3; sourceTree = "<group>"; };
 		8822B4A31D8B343E000427F1 /* begin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = begin.png; sourceTree = "<group>"; };
 		8822B4A41D8B343E000427F1 /* end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = end.png; sourceTree = "<group>"; };
+		888210E41DD512E3001B7A7B /* 955.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 955.json; sourceTree = "<group>"; };
 		88BA2F1B1D89F74B006C9C5D /* Bunk1SpotlightReelMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bunk1SpotlightReelMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BA2F1F1D89F74B006C9C5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88BA2F211D89F74B006C9C5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				88BA2F561D8A0B4E006C9C5D /* 1552-4.jpg */,
 				88CB17B81D93711D0056B263 /* Port Washington Astros */,
 				88BA2F5A1D8A0B62006C9C5D /* 1.jpg */,
+				888210E41DD512E3001B7A7B /* 955.json */,
 				8822B4931D8B3220000427F1 /* DT_TheDuff_Ready2Go_128_INST.mp3 */,
 				88CB17B21D936FAC0056B263 /* 02 Florida - My House.mp3 */,
 				8822B4941D8B3220000427F1 /* DT_TheDUFF_EverySingleNight_INST_125.mp3 */,
@@ -479,6 +482,7 @@
 				88CB17B61D9370D70056B263 /* LAoutro.PNG in Resources */,
 				88CB17E51D93711D0056B263 /* IMG_2400.JPG in Resources */,
 				88CB17F71D93711D0056B263 /* IMG_2450.JPG in Resources */,
+				888210E51DD512E3001B7A7B /* 955.json in Resources */,
 				88CB17FD1D93711D0056B263 /* IMG_2458.JPG in Resources */,
 				88CB17F81D93711D0056B263 /* IMG_2451.JPG in Resources */,
 				88BA2F2E1D89F74B006C9C5D /* LaunchScreen.storyboard in Resources */,

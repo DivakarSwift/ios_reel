@@ -14,8 +14,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
 #import "AFNetworking.h"
-//#import "AFNetworkActivityLogger.h"
-
 #include <sys/xattr.h>
 #import <CommonCrypto/CommonDigest.h>
 
@@ -39,11 +37,10 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFormData:[@"2p0111g41" dataUsingEncoding:NSUTF8StringEncoding] name:@"password"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", responseObject);
-//        [self getVidURLsForUser:488490 camp:433 token:responseObject[@"token"] manager:manager completion:^{
-//        
-//        }];
-        [self makeGetUsersCallFromCampId:433 startUserId:340882 token:responseObject[@"token"] manager:manager];
+//        [self getVidURLsForUser:497693 camp:995 token:responseObject[@"token"] manager:manager completion:nil];
+        [self makeGetUsersCallFromCampId:262 startUserId:118376 token:responseObject[@"token"] manager:manager];
  //       [self makeCampsCallWithToken:responseObject[@"token"] manager:manager];
+//        [self createVidFromFile];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -90,6 +87,33 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
              NSLog(@"Client Token request failed.%@",operation.responseString);
              NSLog(@"error code %ld",(long)[operation.response statusCode]);
          }];
+}
+
+- (void)createVidFromFile {
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"955" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+    }
+    NSMutableArray* urlArray = [NSMutableArray array];
+    for (NSDictionary* imageObject in json[@"photos"]) {
+        [urlArray addObject:imageObject[@"url"]];
+    }
+    if ([urlArray count] > 0) {
+        NSLog(@"good to make vid &*(");
+    } else {
+        NSLog(@"bad to make vid!@#");
+    }
+    if ([urlArray count] > 0) {
+        [self makeVidWithURLs:urlArray campId:955 userId:497693 completion:^{
+            [self makeSampleVidWithURLs:urlArray campId:955 userId:497693 completion:^{
+               
+            }];
+        }];
+    }
 }
 
 - (void)getVidURLsForUsers:(NSArray*)userArray camp:(int)campId token:(NSString*)token manager:(AFHTTPRequestOperationManager*)manager completion:(void (^)(void))completion {
@@ -145,7 +169,6 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [manager GET:url
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSLog(@"Got vid for ! %@",responseObject);
              NSMutableArray* urlArray = [NSMutableArray array];
              for (NSDictionary* imageObject in responseObject[@"photos"]) {
                  [urlArray addObject:imageObject[@"url"]];
@@ -166,24 +189,22 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 - (void)makeSampleVidWithURLs:(NSArray*)urlz campId:(int)campId userId:(int)userId completion:(void (^)(void))completion{
     
     NSMutableArray* urlArray = [urlz mutableCopy];
-    [urlArray insertObject:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/end_org_%d.png",campId] atIndex:0];
-    MovieTransitions* mov = [[MovieTransitions alloc] init];
-    
-    int i = 0;
+    [urlArray insertObject:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/end_org_%d.jpg",campId] atIndex:0];
     UIImage* image;
     NSURL* fileURL;
     NSMutableArray* AVURLAssets = [NSMutableArray array];//[NSMutableArray arrayWithObject:[AVURLAsset URLAssetWithURL:beginURL options:nil]];
 
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    int i = 0;
     while(i < 6){
-        image = [self getImageFromURL:urlArray[i]];
-        fileURL = [[SpotlightHighlightReelCreator sharedCreator] synchronouslyreateVideoFromImage:image
-                                                                                         duration:3
-                                                                                             name:[NSString stringWithFormat:@"%i",i]
-                                                                                       completion:nil];
+        NSString *fileName = [NSString stringWithFormat:@"%@_%@", [NSString stringWithFormat:@"%i",i], @"image.mov"];
+        NSURL *fileURL = [NSURL fileURLWithPath:[documentsDirectory stringByAppendingPathComponent:fileName]];
         [AVURLAssets addObject:[AVURLAsset URLAssetWithURL:fileURL options:nil]];
-        NSLog(@"finished a vid");
         i++;
     }
+    
     image = [self getImageFromURL:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/preview_end.png"]];
     fileURL = [[SpotlightHighlightReelCreator sharedCreator] synchronouslyreateVideoFromImage:image
                                                                                      duration:3
@@ -191,14 +212,14 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                                                                    completion:^{
                                                                                    }];
     [AVURLAssets addObject:[AVURLAsset URLAssetWithURL:fileURL options:nil]];
-    NSLog(@"finished a vid");
     NSMutableArray* finalMediaArrayPaths = [NSMutableArray array];
-    
-//
-    NSArray* doubleAssets;
+
     for (int j = 0; j+1 < [AVURLAssets count]; j++) {
-        doubleAssets = @[ AVURLAssets[j], AVURLAssets[j+1] ];
-        [mov makeTheMovies:doubleAssets name:[NSString stringWithFormat:@"%i",j] ];
+        if (j+2 == [AVURLAssets count]) {
+            MovieTransitions* mov = [[MovieTransitions alloc] init];
+            NSArray* doubleAssets = @[ AVURLAssets[j], AVURLAssets[j+1] ];
+            [mov makeTheMovies:doubleAssets name:[NSString stringWithFormat:@"%i",j] ];
+        }
         [finalMediaArrayPaths addObject: [[[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:[NSString stringWithFormat:@"%i.mov", j]] absoluteString]];
     }
 
@@ -224,7 +245,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 - (void)makeVidWithURLs:(NSArray*)urlz campId:(int)campId userId:(int)userId completion:(void (^)(void))completion{
     
     NSMutableArray* urlArray = [urlz mutableCopy];
-    [urlArray insertObject:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/end_org_%d.png",campId] atIndex:0];
+    [urlArray insertObject:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/end_org_%d.jpg",campId] atIndex:0];
     MovieTransitions* mov = [[MovieTransitions alloc] init];
     
     int i = 0;
@@ -232,24 +253,22 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     NSURL* fileURL;
     NSMutableArray* AVURLAssets = [NSMutableArray array];//[NSMutableArray arrayWithObject:[AVURLAsset URLAssetWithURL:beginURL options:nil]];
     
-    while(i < [urlArray count]){
+    while(i < [urlArray count] && i < 43){
         image = [self getImageFromURL:urlArray[i]];
         fileURL = [[SpotlightHighlightReelCreator sharedCreator] synchronouslyreateVideoFromImage:image
                                                                                          duration:3
                                                                                              name:[NSString stringWithFormat:@"%i",i]
                                                                                        completion:nil];
         [AVURLAssets addObject:[AVURLAsset URLAssetWithURL:fileURL options:nil]];
-        NSLog(@"finished a vid");
         i++;
     }
 
-    image = [self getImageFromURL:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/end_org_%d.png",campId]];
+    image = [self getImageFromURL:[NSString stringWithFormat:@"https://s3.amazonaws.com/myspotlight/uploads/end_org_%d.jpg",campId]];
     fileURL = [[SpotlightHighlightReelCreator sharedCreator] synchronouslyreateVideoFromImage:image
                                                                                      duration:3
                                                                                          name:[NSString stringWithFormat:@"%lu",(unsigned long)[AVURLAssets count]]
                                                                                    completion:nil];
     [AVURLAssets addObject:[AVURLAsset URLAssetWithURL:fileURL options:nil]];
-    NSLog(@"finished a vid");
 
     NSMutableArray* finalMediaArrayPaths = [NSMutableArray array];
 
@@ -262,7 +281,24 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     }
     NSString* reelName = [self sha1:[NSString stringWithFormat:@"%d_2016", userId]];
     [[SpotlightHighlightReelCreator sharedCreator] createMontageWithMedia:finalMediaArrayPaths songTitle:@"TPWW_InMyShoes_F1" shouldSave:YES savedFileName:reelName completion:^{
+        
+//                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//                    
+//                    NSArray* cachePathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+//                    NSString* cachePath = [cachePathArray lastObject];
+//                    NSURL *filename = [NSURL fileURLWithPath:[cachePath stringByAppendingPathComponent:reelName]];
+//
+//                    
+//                    NSLog (@"Playing from : %@", filename.absoluteString);
+//        
+//                    AVPlayer *player = [AVPlayer playerWithURL:filename];
+//                    AVPlayerViewController *playerViewController = [AVPlayerViewController new];
+//                    playerViewController.player = player;
+//                    [playerViewController.player play];//Used to Play On start
+//                    [self presentViewController:playerViewController animated:YES completion:nil];
+//                });
         if (completion) completion();
+        
     }];
 }
 

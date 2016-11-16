@@ -75,15 +75,20 @@ import AVFoundation
         
         // Since export happens asyncrhonously then this command line tool can exit
         // before the export has completed unless we wait until the export has finished.
+        
+        //ERROR: Binary operator '*' cannot be applied to operands of type 'NSTimeInterval' and 'UInt64'
+        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
+        
         let sessionWaitSemaphore = dispatch_semaphore_create(0)
         exportSession.exportAsynchronouslyWithCompletionHandler({
             dispatch_semaphore_signal(sessionWaitSemaphore)
             return Void()
         })
-        dispatch_semaphore_wait(sessionWaitSemaphore, DISPATCH_TIME_FOREVER)
+        dispatch_semaphore_wait(sessionWaitSemaphore, delayTime)
         
         if (exportSession.error != nil) {
-            print(exportSession.error)
+            print("Export fail" + (exportSession.error?.localizedDescription)!)
         } else {
             print("Export finished at " + filePath)
         }
@@ -187,10 +192,8 @@ import AVFoundation
             let currentTrack = tracks[trackIndex]
             let instruction = AVMutableVideoCompositionInstruction()
             
-            if videoComposition.isValidForAsset(nil, timeRange: passThroughTimeRanges[i].CMTimeRangeValue, validationDelegate: nil){
-                print("looks ok")
-            } else {
-                print("shit")
+            if !videoComposition.isValidForAsset(nil, timeRange: passThroughTimeRanges[i].CMTimeRangeValue, validationDelegate: nil){
+                print("*** shit video composition error ***")
             }
             
             instruction.timeRange = passThroughTimeRanges[i].CMTimeRangeValue
@@ -201,9 +204,7 @@ import AVFoundation
             
             if i < transitionTimeRanges.count {
                 let instruction = AVMutableVideoCompositionInstruction()
-                if videoComposition.isValidForAsset(nil, timeRange: transitionTimeRanges[i].CMTimeRangeValue, validationDelegate: nil){
-                    print("looks ok")
-                } else {
+                if !videoComposition.isValidForAsset(nil, timeRange: transitionTimeRanges[i].CMTimeRangeValue, validationDelegate: nil){
                     print("shit")
                 }
                 instruction.timeRange = transitionTimeRanges[i].CMTimeRangeValue
